@@ -8,6 +8,7 @@ public class Constants {
 
     public static final String TIME_FORMAT = "HH:mm:ss";
 
+    /*
     public static final int PRICE_GROUP_A = 0;
 
     public static final int PRICE_GROUP_B = 0;
@@ -22,4 +23,5 @@ public class Constants {
             : c == 'C' ? PRICE_GROUP_C
             : PRICE_GROUP_D;
     }
+    */
 }
