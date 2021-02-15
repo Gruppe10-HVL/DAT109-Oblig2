@@ -19,7 +19,7 @@ import no.hvl.dat109.utils.Group;
 
 public class ReservationController {
 
-    public static void bookVehicle() {
+    public static boolean bookVehicle() {
         Scanner sc = new Scanner(System.in);
         DateTimeFormatter dtf = DateTimeFormatter.BASIC_ISO_DATE;
 

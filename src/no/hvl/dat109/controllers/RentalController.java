@@ -11,7 +11,7 @@ import no.hvl.dat109.utils.CreditCard;
 
 public class RentalController {
 
-    public static void rental(Company company) {
+    public static boolean rental(Company company) {
         Scanner sc = new Scanner(System.in);
 
         System.out.println("Phone number:");
@@ -52,6 +52,8 @@ public class RentalController {
         Rental rental = new Rental(creditCard, regnr, mileage, rentalDate, returnDate);
         company.addRentedVehicle(rental);
         System.out.println("Rental complete!");
+
+        return true;
 
         // TODO: return to client
     }

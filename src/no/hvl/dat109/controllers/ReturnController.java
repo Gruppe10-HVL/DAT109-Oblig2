@@ -13,7 +13,7 @@ import no.hvl.dat109.utils.CreditCard;
 
 public class ReturnController {
 
-    public static void returnVehicle(Company company) {
+    public static boolean returnVehicle(Company company) {
         Scanner sc = new Scanner(System.in);
         LocalDate currentDate = LocalDate.now();
 
@@ -52,6 +52,7 @@ public class ReturnController {
         List<Return> returnedVehicles = company.getReturnedCars();
         returnedVehicles.add(returnVehicle);
 
+        return true;
         // TODO: return to client
 
     }
