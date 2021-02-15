@@ -10,7 +10,7 @@ public class Vehicle {
 	private String make, model;
 	private Group group;
 	private double mileage;
-	private Queue<Booking> bookings;
+	private ArrayList<Booking> bookings;
 
 	public Vehicle(int regnr, String make, String model, Group group, double mileage) {
 		this.regnr = regnr;
@@ -19,7 +19,7 @@ public class Vehicle {
 		this.group = group;
 		this.mileage = mileage;
 		this.dailyPrice = group.getPrice();
-		bookings = new LinkedBlockingQueue<Booking>();
+		bookings = new ArrayList<Booking>();
 	}
 
 	public Vehicle(boolean t) {
@@ -29,7 +29,7 @@ public class Vehicle {
 		this.group = group.A;
 		this.mileage = 231923.21;
 		this.dailyPrice = group.getPrice();
-		bookings = new LinkedBlockingQueue<Booking>();
+		bookings = new ArrayList<Booking>();
 	}
 
 	public int getRegnr() {
