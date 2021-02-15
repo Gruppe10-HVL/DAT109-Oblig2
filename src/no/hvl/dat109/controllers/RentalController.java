@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.Scanner;
 
 import no.hvl.dat109.models.Company;
-import no.hvl.dat109.models.Customer;
 import no.hvl.dat109.models.Rental;
 import no.hvl.dat109.models.Reservation;
 import no.hvl.dat109.utils.CreditCard;
@@ -14,10 +13,8 @@ public class RentalController {
 
     public static void rental(Company company) {
         Scanner sc = new Scanner(System.in);
-
-        LocalDateTime currentDate = LocalDateTime.now();
-
-        System.out.println("");
+    
+        System.out.println("Phone number:");
         int phonenr = sc.nextInt();
         sc.nextLine();
 
@@ -32,7 +29,8 @@ public class RentalController {
             return;
         }
 
-        Customer customer = reservation.getCustomer();
+        LocalDateTime rentalDate = reservation.getFromDate();
+        LocalDateTime returnDate = rentalDate.plusDays(reservation.getDays());
 
         System.out.println("Credit card number:");
         long creditCardNr = sc.nextLong();
@@ -51,6 +49,10 @@ public class RentalController {
         String regnr = reservation.getVehicle().getRegnr();
         int mileage = reservation.getVehicle().getMileage();
 
-        Rental rental = new Rental();
+        Rental rental = new Rental(creditCard, regnr, mileage, rentalDate, returnDate);
+        company.addRentedVehicle(rental);
+        System.out.println("Rental complete!");
+
+        // TODO: return to client
     }
 }
