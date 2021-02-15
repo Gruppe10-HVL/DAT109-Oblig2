@@ -2,17 +2,21 @@ package no.hvl.dat109.models;
 
 import java.time.LocalDateTime;
 
+import no.hvl.dat109.utils.CreditCard;
+
 public class Customer {
     
     private String firstname, surname;
     private Address address; // Change to address object later
     private int phonenr;
+    CreditCard creditCard;
 
     public Customer(String firstname, String surname, Address address, int phonenr) {
         this.firstname = firstname;
         this.surname = surname;
         this.address = address;
         this.phonenr = phonenr;
+        this.creditCard = null;
     }
 
     public String getFirstname() {
@@ -47,4 +51,11 @@ public class Customer {
         this.phonenr = phonenr;
     }
 
+    public CreditCard getCreditCard() {
+        return creditCard;
+    }
+
+    public void setCreditCard(CreditCard creditCard) {
+        this.creditCard = creditCard;
+    }
 }

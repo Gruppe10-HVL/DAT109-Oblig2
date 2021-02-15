@@ -7,13 +7,16 @@ import java.util.Scanner;
 import no.hvl.dat109.models.Company;
 import no.hvl.dat109.models.Office;
 import no.hvl.dat109.models.Reservation;
+import no.hvl.dat109.models.Return;
 import no.hvl.dat109.models.Vehicle;
+import no.hvl.dat109.utils.CreditCard;
 
 public class ReturnController {
     
     public static void returnVehicle(Company company) {
         Scanner sc = new Scanner(System.in);
-
+        LocalDateTime currentDate = LocalDateTime.now();
+        
         System.out.println("Phone number:");
         int phonenr = sc.nextInt();
         sc.nextLine();
@@ -31,7 +34,7 @@ public class ReturnController {
             return;
         }
 
-        LocalDateTime currentDate = LocalDateTime.now();
+        
 
         System.out.println("Enter current mileage:");
         int mileage = sc.nextInt();
@@ -45,5 +48,15 @@ public class ReturnController {
         returnOffice.addVehicle(vehicle);
 
         System.out.println("Receit sent.");
+        CreditCard creditCard = reservation.getCustomer().getCreditCard();
+
+        allReservations.remove(reservation);
+
+        Return returnVehicle = new Return(creditCard, currentDate, vehicle.getRegnr(), mileage);
+        List<Return> returnedVehicles = company.getReturnedCars();
+        returnedVehicles.add(returnVehicle);
+
+        // TODO: return to client
+
     }
 }
