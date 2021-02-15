@@ -2,6 +2,8 @@ package no.hvl.dat109.models;
 
 import java.time.LocalDateTime;
 
+import no.hvl.dat109.utils.CreditCard;
+
 public class Rental {
 
     private CreditCard creditCard;
