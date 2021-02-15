@@ -1,7 +1,6 @@
 package no.hvl.dat109.models;
 
-import java.util.Queue;
-import java.util.concurrent.LinkedBlockingQueue;
+import java.util.ArrayList;
 
 import no.hvl.dat109.utils.Group;
 
@@ -11,7 +10,7 @@ public class Vehicle {
     private String make, model;
     private Group group;
     private double mileage;
-    private Queue<Booking> bookings;
+    private ArrayList<Booking> bookings;
 
     public Vehicle (int regnr, String make, String model, Group group, double mileage) {
         this.regnr = regnr;
@@ -20,8 +19,12 @@ public class Vehicle {
         this.group = group;
         this.mileage = mileage;
         this.dailyPrice = group.getPrice();
-        bookings = new LinkedBlockingQueue<Booking>();
+        bookings = new ArrayList<Booking>();
     }
+
+	public Vehicle(int regnr, String make, String model, Group g) {
+		this(regnr, make, model, g, 0.0);
+	}
 
     public int getRegnr() {
         return regnr;
@@ -71,13 +74,16 @@ public class Vehicle {
 		this.mileage = mileage;
 	}
 
-	public Queue<Booking> getBookings() {
+	public ArrayList<Booking> getBookings() {
 		return bookings;
 	}
 
-	public void setBookings(Queue<Booking> bookings) {
+	public void setBookings(ArrayList<Booking> bookings) {
 		this.bookings = bookings;
 	}
 
-    
+    @Override
+	public String toString() {
+		return "";
+	}
 }

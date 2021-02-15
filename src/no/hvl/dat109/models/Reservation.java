@@ -4,9 +4,9 @@ import java.time.LocalDateTime;
 
 public class Reservation extends Booking {
 
-    public Reservation(RentalOffice office, int regnr, Customer customer, LocalDateTime fromDate,
+    public Reservation(int id, RentalOffice office, int regnr, Customer customer, LocalDateTime fromDate,
             LocalDateTime toDate) {
-        super(office, regnr, customer, fromDate, toDate);
+        super(id, office, regnr, customer, fromDate, toDate);
     }
     
     
