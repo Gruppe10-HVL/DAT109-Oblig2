@@ -104,7 +104,7 @@ public class Vehicle {
 
 	@Override
 	public String toString() {
-		return "Daily Price:" + dailyPrice + "\n Vehicle Group=:" + group + "\nMake:" + make + "\nModel:" + model
+		return "Daily Price:" + dailyPrice + "\nVehicle Group=:" + group + "\nMake:" + make + "\nModel:" + model
 				+ "\nMileage=" + mileage + "\nRegistration Number:" + regnr;
 	}
 

@@ -15,7 +15,7 @@ import no.hvl.dat109.models.Vehicle;
 
 public class ReservationController {
 
-    public static void bookCar() {
+    public static void bookVehicle() {
         Scanner sc = new Scanner(System.in);
         DateTimeFormatter dtf = DateTimeFormatter.BASIC_ISO_DATE;
         
