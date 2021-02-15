@@ -11,6 +11,7 @@ import java.util.stream.Collectors;
 
 import no.hvl.dat109.constants.Constants;
 import no.hvl.dat109.utils.Address;
+import no.hvl.dat109.models.Company;
 import no.hvl.dat109.models.Customer;
 import no.hvl.dat109.models.Office;
 import no.hvl.dat109.models.Reservation;
@@ -19,7 +20,7 @@ import no.hvl.dat109.utils.Group;
 
 public class ReservationController {
 
-    public static boolean bookVehicle() {
+    public static boolean bookVehicle(Company company) {
         Scanner sc = new Scanner(System.in);
         DateTimeFormatter dtf = DateTimeFormatter.BASIC_ISO_DATE;
 
@@ -114,7 +115,8 @@ public class ReservationController {
 
         return true;
         // TODO Add reservation to rental company
+        company.addReservation(reservation);
 
-        // TODO return to client
+        return;
     }
 }
