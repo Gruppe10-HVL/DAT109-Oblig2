@@ -1,15 +1,11 @@
 package no.hvl.dat109;
 
-import java.time.LocalDateTime;
-import java.util.Locale;
 import java.util.Scanner;
-import java.time.format.DateTimeFormatter;
-import java.time.format.DateTimeFormatterBuilder;
-import java.time.temporal.ChronoField;
-
-import no.hvl.dat109.constants.*;
-import no.hvl.dat109.models.Vehicle;
-import no.hvl.dat109.utils.Group;
+import no.hvl.dat109.controllers.ReservationController;
+import no.hvl.dat109.controllers.RentalController;
+import no.hvl.dat109.controllers.ReturnController;
+import no.hvl.dat109.models.Address;
+import no.hvl.dat109.models.Company;
 
 public class Main {
 
@@ -18,61 +14,40 @@ public class Main {
     }
 
     public static void run() {
-        Scanner scanner = new Scanner(System.in);
-        String username;
-        Boolean accepted = false;
-        LocalDateTime fromDate, toDate;
+        Scanner scn = new Scanner(System.in);
+        boolean exit = false;
+        Company c = new Company("test", new Address("null", 123, "null"), "12345678"); // Dummy company, remove later.
+        System.out.println("Hello and welcome to Rent-a-complete-wreck Bilutleie AS");
+        System.out.println("Would you like to:");
+        System.out.println("1. Make a reservation");
+        System.out.println("2. Finalize and pick up your reserved car");
+        System.out.println("3. Return your rental vehicle");
+        System.out.println("4. Exit our customer system.");
+        while (!exit) {
+            int choice = scn.nextInt();
+            switch (choice) {
+                case 1:
+                    ReservationController.bookCar();
+                    break;
 
-        DateTimeFormatterBuilder builder = new DateTimeFormatterBuilder().parseCaseInsensitive().parseLenient()
-                .parseDefaulting(ChronoField.YEAR_OF_ERA, 2021L).appendPattern("[dd-MM-yyyy HH:mm]")
-                .appendPattern("[dd-MM-yyyy]").appendPattern("[dd-MM-yyyy HH:mm:ss]").appendPattern("[yyyy-MM-dd]");
-        DateTimeFormatter formatter = builder.toFormatter(Locale.ENGLISH);
+                case 2:
+                    RentalController.rental(c);
+                    break;
+                case 3:
+                    ReturnController.returnVehicle(c);
+                    break;
 
-        System.out.println("Vennligst logg inn med brukernavn");
-        username = scanner.next(); // Dummy logic
-        if (username != null) {
-            System.out.println("Success");
+                case 4:
+                    exit = true;
+                    break;
 
-        } else {
-            System.out.println("Please give some semblance of input");
-            scanner.close();
-            return;
-        }
-        /*
-         * NEED TO FIX DATE FORMATTING
-         */
-        System.out.println("When do you wish to rent the vehicle from?");
-        System.out.println("Please specify a date in the format of: dd-MM-yyyy HH:mm");
-        fromDate = LocalDateTime.parse(scanner.next(), formatter);
-        System.out.println("When do you wish to rent the vehicle to?");
-        System.out.println("Please specify a date in the format of: dd-MM-yyyy HH:mm");
-        toDate = LocalDateTime.parse(scanner.next(), formatter);
-
-        while (!accepted) {
-            String models = "Which vehicle do you wish to reserve?\n"
-                    .concat("You may choose from our four price classes: \n");
-            for (Group g : Group.values()) {
-                models.concat(g.name() + "Price:" + g.getPrice() + " \n");
+                default:
+                    System.out.println("Please make a valid selection.");
+                    break;
             }
-            System.out.println(models);
-            Group vehicleGroup = Group.valueOf(scanner.next());
-            // Vehicle vehicle = new Vehicle(); //Query for a vehicle in rental controller.
-            Vehicle vehicle = new Vehicle(true); // Temporary for testing, replace with actual vehicle object later.
-            System.out.println("We have found this vehicle, from your chosen class");
-            System.out.println(vehicle.toString());
-            System.out.println("Do you wish to rent this vehicle? (Yes/no)");
-            accepted = scanner.next().toLowerCase() == "yes" ? true : false;
         }
-
-        // Handle reservation in controller
-        System.out.println("The specified vehicle has been reserved from:");
-        System.out.println(fromDate);
-        System.out.println("The specified vehicle has been reserved to:");
-        System.out.println(toDate);
-
-        System.out.println("Payment will be done on pickup.");
         System.out.println("Thank you for using Rent-a-complete-wreck Bilutleie AS");
-        scanner.close();
+        scn.close();
     }
 
 }
