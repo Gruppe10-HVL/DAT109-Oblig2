@@ -11,22 +11,20 @@ import no.hvl.dat109.models.Reservation;
 import no.hvl.dat109.utils.CreditCard;
 
 public class RentalController {
-    
+
     public static void rental(Company company) {
         Scanner sc = new Scanner(System.in);
-    
+
         LocalDateTime currentDate = LocalDateTime.now();
 
         System.out.println("");
         int phonenr = sc.nextInt();
         sc.nextLine();
-        
+
         List<Reservation> allReservations = company.getReservations();
 
-        Reservation reservation = allReservations.stream()
-                            .filter(r -> phonenr == r.getCustomer().getPhonenr())
-                            .findAny()
-                            .orElse(null);
+        Reservation reservation = allReservations.stream().filter(r -> phonenr == r.getCustomer().getPhonenr())
+                .findAny().orElse(null);
 
         if (reservation == null) {
             System.out.println("No reservations with that phone number.");
@@ -41,7 +39,7 @@ public class RentalController {
         sc.nextLine();
 
         CreditCard creditCard = new CreditCard(creditCardNr);
-        
+
         while (!creditCard.validate()) {
             System.out.println("Card number is invalid.");
             creditCardNr = sc.nextLong();
@@ -51,8 +49,8 @@ public class RentalController {
         }
 
         String regnr = reservation.getVehicle().getRegnr();
-        double mileage = reservation.getVehicle().getMileage();
-        
+        int mileage = reservation.getVehicle().getMileage();
+
         Rental rental = new Rental();
     }
 }

@@ -9,11 +9,11 @@ public class Vehicle {
 	private int dailyPrice;
 	private String regnr, make, model;
 	private Group group;
-	private double mileage;
+	private int mileage;
 	private boolean available;
 	private ArrayList<Booking> bookings;
 
-	public Vehicle(String regnr, String make, String model, Group group, double mileage) {
+	public Vehicle(String regnr, String make, String model, Group group, int mileage) {
 		this.regnr = regnr;
 		this.make = make;
 		this.model = model;
@@ -25,7 +25,7 @@ public class Vehicle {
 	}
 
 	public Vehicle(String regnr, String make, String model, Group group) {
-		this(regnr, make, model, group, 0.0);
+		this(regnr, make, model, group, 0);
 	}
 
 	public Vehicle(boolean t) {
@@ -33,7 +33,7 @@ public class Vehicle {
 		this.make = "BMW";
 		this.model = "320d";
 		this.group = group.SMALL;
-		this.mileage = 231923.21;
+		this.mileage = 231923;
 		this.dailyPrice = group.getPrice();
 		bookings = new ArrayList<Booking>();
 	}
@@ -78,11 +78,11 @@ public class Vehicle {
 		this.group = group;
 	}
 
-	public double getMileage() {
+	public int getMileage() {
 		return mileage;
 	}
 
-	public void setMileage(double mileage) {
+	public void setMileage(int mileage) {
 		this.mileage = mileage;
 	}
 
