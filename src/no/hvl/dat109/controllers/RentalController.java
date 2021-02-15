@@ -18,7 +18,7 @@ public class RentalController {
     private HashMap<Integer, Reservation> reservations;
     private Scanner sc;
 
-    public RentalController(RentalOffice rentalOffice) {
+    public RentalController() {
         this.reservations = new HashMap<Integer, Reservation>();
         this.sc = new Scanner(System.in);
     }
