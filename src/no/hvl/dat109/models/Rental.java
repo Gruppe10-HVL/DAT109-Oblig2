@@ -8,7 +8,7 @@ public class Rental extends Booking {
     private double mileage;
 
 
-    public Rental(int id, RentalOffice office, int regnr, Customer customer, LocalDateTime fromDate, LocalDateTime toDate, int creditCardNr, double mileage) {
+    public Rental(int id, Office office, int regnr, Customer customer, LocalDateTime fromDate, LocalDateTime toDate, int creditCardNr, double mileage) {
         super(id, office, regnr, customer, fromDate, toDate);
         this.creditCardNr = creditCardNr;
         this.mileage = mileage;

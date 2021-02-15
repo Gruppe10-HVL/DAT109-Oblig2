@@ -1,5 +1,6 @@
 package no.hvl.dat109.models;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -7,22 +8,22 @@ import java.util.stream.Collectors;
 
 import no.hvl.dat109.utils.Group;
 
-public class RentalOffice {
+public class Office {
     
     private int officenr, phonenr;
-    private String address; // Change to Address-object?
-    private Map<Integer, Vehicle> vehicles;
+    private Address address;
+    private Map<String, Vehicle> vehicles;
     private Map<Integer, ArrayList<Booking>> bookings;
 
-    public RentalOffice(int officenr, String address, int phonenr) {
+    public Office(int officenr, Address address, int phonenr) {
         this.officenr = officenr;
         this.address = address;
         this.phonenr = phonenr;
-        this.vehicles = new HashMap<Integer, Vehicle>();
+        this.vehicles = new HashMap<String, Vehicle>();
         this.bookings = new HashMap<Integer, ArrayList<Booking>>();
     }
 
-    public Vehicle getVehicle(int regnr) {
+    public Vehicle getVehicle(String regnr) {
         return vehicles.get(regnr);
     }
 
@@ -42,19 +43,19 @@ public class RentalOffice {
         this.phonenr = phonenr;
     }
 
-    public String getAddress() {
+    public Address getAddress() {
         return address;
     }
 
-    public void setAddress(String address) {
+    public void setAddress(Address address) {
         this.address = address;
     }
 
-    public Map<Integer, Vehicle> getVehicles() {
+    public Map<String, Vehicle> getVehicles() {
         return vehicles;
     }
 
-    public void setVehicles(Map<Integer, Vehicle> vehicles) {
+    public void setVehicles(Map<String, Vehicle> vehicles) {
         this.vehicles = vehicles;
     }
 
@@ -72,6 +73,10 @@ public class RentalOffice {
 
     public void removeVehicle(Vehicle vehicle) {
         vehicles.remove(vehicle.getRegnr());
+    }
+
+    public Reservation createReservation(Vehicle v, LocalDateTime fromDate, LocalDateTime fromTime, int days, Office rentalOffice, Office returnOffice, Customer customer) {
+        return new Reservation(v, fromDate, fromTime, days, rentalOffice, returnOffice, customer);
     }
 
     public ArrayList<Vehicle> getAllVehiclesByGroup(Group group) {

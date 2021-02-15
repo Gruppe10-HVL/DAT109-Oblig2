@@ -6,41 +6,43 @@ import no.hvl.dat109.utils.Group;
 
 public class Vehicle {
 
-	private int dailyPrice, regnr;
-	private String make, model;
+	private int dailyPrice;
+	private String regnr, make, model;
 	private Group group;
 	private double mileage;
+	private boolean available;
 	private ArrayList<Booking> bookings;
 
-	public Vehicle(int regnr, String make, String model, Group group, double mileage) {
+	public Vehicle(String regnr, String make, String model, Group group, double mileage) {
 		this.regnr = regnr;
 		this.make = make;
 		this.model = model;
 		this.group = group;
+		this.available = true;
 		this.mileage = mileage;
 		this.dailyPrice = group.getPrice();
 		bookings = new ArrayList<Booking>();
 	}
 
-	public Vehicle(int regnr, String make, String model, Group group) {
+	public Vehicle(String regnr, String make, String model, Group group) {
 		this(regnr, make, model, group, 0.0);
 	}
 
 	public Vehicle(boolean t) {
-		this.regnr = 12345;
+		this.regnr = "12345";
 		this.make = "BMW";
 		this.model = "320d";
-		this.group = group.A;
+		this.group = group.SMALL;
 		this.mileage = 231923.21;
 		this.dailyPrice = group.getPrice();
 		bookings = new ArrayList<Booking>();
 	}
 
-	public int getRegnr() {
+	public String getRegnr() {
 		return regnr;
 	}
 
-	public void setRegnr(int regnr) {
+	public void setRegnr(String regnr) {
 		this.regnr = regnr;
 	}
 
@@ -82,6 +84,14 @@ public class Vehicle {
 
 	public void setMileage(double mileage) {
 		this.mileage = mileage;
+	}
+
+	public boolean isAvailable() {
+		return available;
+	}
+
+	public void setAvailable(boolean available) {
+		this.available = available;
 	}
 
 	public ArrayList<Booking> getBookings() {

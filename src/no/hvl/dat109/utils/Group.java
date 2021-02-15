@@ -2,7 +2,7 @@ package no.hvl.dat109.utils;
 
 public enum Group {
 
-    A(100), B(120), C(150), D(200);
+    SMALL(100), MEDIUM(120), BIG(150), STATION_WAGON(200);
 
     public final int price;
 

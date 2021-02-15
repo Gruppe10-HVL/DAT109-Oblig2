@@ -5,10 +5,10 @@ import java.time.LocalDateTime;
 public class Customer {
     
     private String firstname, surname;
-    private String address; // Change to address object later
+    private Address address; // Change to address object later
     private int phonenr;
 
-    public Customer(String firstname, String surname, String address, int phonenr) {
+    public Customer(String firstname, String surname, Address address, int phonenr) {
         this.firstname = firstname;
         this.surname = surname;
         this.address = address;
@@ -31,11 +31,11 @@ public class Customer {
         this.surname = surname;
     }
 
-    public String getAddress() {
+    public Address getAddress() {
         return address;
     }
 
-    public void setAddress(String address) {
+    public void setAddress(Address address) {
         this.address = address;
     }
 

@@ -4,12 +4,12 @@ import java.time.LocalDateTime;
 
 public abstract class Booking {
     
-    private RentalOffice office;
+    private Office office;
     private int id, regnr;
     private Customer customer;
     private LocalDateTime fromDate, toDate;
 
-    public Booking(int id, RentalOffice office, int regnr, Customer customer, LocalDateTime fromDate, LocalDateTime toDate) {
+    public Booking(int id, Office office, int regnr, Customer customer, LocalDateTime fromDate, LocalDateTime toDate) {
         this.id = id;
         this.office = office;
         this.regnr = regnr;
@@ -26,11 +26,11 @@ public abstract class Booking {
         this.id = id;
     }
 
-    public RentalOffice getOffice() {
+    public Office getOffice() {
         return office;
     }
 
-    public void setOffice(RentalOffice office) {
+    public void setOffice(Office office) {
         this.office = office;
     }
 
