@@ -27,7 +27,7 @@ public class Main {
             int choice = scn.nextInt();
             switch (choice) {
                 case 1:
-                    ReservationController.bookCar();
+                    ReservationController.bookVehicle();
                     break;
 
                 case 2:
