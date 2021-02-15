@@ -8,6 +8,7 @@ import java.util.stream.Collectors;
 
 import no.hvl.dat109.constants.Constants;
 import no.hvl.dat109.models.Address;
+import no.hvl.dat109.models.Company;
 import no.hvl.dat109.models.Customer;
 import no.hvl.dat109.models.Office;
 import no.hvl.dat109.models.Reservation;
@@ -15,7 +16,7 @@ import no.hvl.dat109.models.Vehicle;
 
 public class ReservationController {
 
-    public static void bookVehicle() {
+    public static void bookVehicle(Company company) {
         Scanner sc = new Scanner(System.in);
         DateTimeFormatter dtf = DateTimeFormatter.BASIC_ISO_DATE;
         
@@ -94,7 +95,8 @@ public class ReservationController {
         Customer customer = new Customer(fName, lName, new Address(street, postalCode, postalAddress), phone);
         Reservation reservation = new Reservation(vehicle, date, time, days, rentalOffice, returnOffice, customer);
         // TODO Add reservation to rental company
+        company.addReservation(reservation);
 
-        // TODO return to client
+        return;
     }
 }
