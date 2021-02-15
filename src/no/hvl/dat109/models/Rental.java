@@ -2,32 +2,22 @@ package no.hvl.dat109.models;
 
 import java.time.LocalDateTime;
 
-public class Rental extends Booking {
+public class Rental {
 
-    private int creditCardNr;
+    private CreditCard creditCard;
+    private String regnr;
     private double mileage;
-
-
-    public Rental(int id, Office office, int regnr, Customer customer, LocalDateTime fromDate, LocalDateTime toDate, int creditCardNr, double mileage) {
-        super(id, office, regnr, customer, fromDate, toDate);
-        this.creditCardNr = creditCardNr;
-        this.mileage = mileage;
-    }
-
-    public int getCreditCardNr() {
-        return creditCardNr;
-    }
-
-    public void setCreditCardNr(int creditCardNr) {
-        this.creditCardNr = creditCardNr;
-    }
-
-    public double getMileage() {
-        return mileage;
-    }
-
-    public void setMileage(double mileage) {
-        this.mileage = mileage;
-    }
+    private LocalDateTime rentalDate, returnDate;
     
+    public Rental(CreditCard creditCard, String regnr, double mileage, LocalDateTime rentalDate, LocalDateTime returnDate) {
+        this.creditCard = creditCard;
+        this.regnr = regnr;
+        this.mileage = mileage;
+        this.rentalDate = rentalDate;
+        this.returnDate = returnDate;
+    }
+
+    public CreditCard getCreditCard() {
+        return creditCard;
+    }
 }

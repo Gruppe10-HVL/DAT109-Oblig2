@@ -6,7 +6,6 @@ public class Address {
     private int postalCode;
 
     public Address(String street, int postalCode, String postalAddrress) {
-        super();
         this.street = street;
         this.postalCode = postalCode;
         this.postalAddress = postalAddrress;

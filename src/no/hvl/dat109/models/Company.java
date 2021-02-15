@@ -5,6 +5,7 @@ import java.util.List;
 
 public class Company {
     
+    // TODO: Change phonenr to int
     private String name, phonenr;
     private Address address;
     private List<Reservation> reservations;
