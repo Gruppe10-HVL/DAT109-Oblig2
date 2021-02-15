@@ -5,16 +5,25 @@ import java.time.LocalDateTime;
 public abstract class Booking {
     
     private RentalOffice office;
-    private int regnr;
+    private int id, regnr;
     private Customer customer;
     private LocalDateTime fromDate, toDate;
 
-    public Booking(RentalOffice office, int regnr, Customer customer, LocalDateTime fromDate, LocalDateTime toDate) {
+    public Booking(int id, RentalOffice office, int regnr, Customer customer, LocalDateTime fromDate, LocalDateTime toDate) {
+        this.id = id;
         this.office = office;
         this.regnr = regnr;
         this.customer = customer;
         this.fromDate = fromDate;
         this.toDate = toDate;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public RentalOffice getOffice() {

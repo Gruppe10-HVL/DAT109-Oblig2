@@ -1,7 +1,6 @@
 package no.hvl.dat109.models;
 
-import java.util.Queue;
-import java.util.concurrent.LinkedBlockingQueue;
+import java.util.ArrayList;
 
 import no.hvl.dat109.utils.Group;
 
@@ -81,11 +80,11 @@ public class Vehicle {
 		this.mileage = mileage;
 	}
 
-	public Queue<Booking> getBookings() {
+	public ArrayList<Booking> getBookings() {
 		return bookings;
 	}
 
-	public void setBookings(Queue<Booking> bookings) {
+	public void setBookings(ArrayList<Booking> bookings) {
 		this.bookings = bookings;
 	}
 

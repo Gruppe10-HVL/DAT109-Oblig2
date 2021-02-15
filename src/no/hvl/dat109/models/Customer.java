@@ -1,5 +1,7 @@
 package no.hvl.dat109.models;
 
+import java.time.LocalDateTime;
+
 public class Customer {
     
     private String firstname, surname;
@@ -44,7 +46,5 @@ public class Customer {
     public void setPhonenr(int phonenr) {
         this.phonenr = phonenr;
     }
-
-    
 
 }

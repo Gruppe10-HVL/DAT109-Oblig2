@@ -80,7 +80,7 @@ public class RentalOffice {
             .collect(Collectors.toCollection(ArrayList::new));
     }
 
-    public ArrayList<Vehicle> getAllVehicles(char group) {
+    public ArrayList<Vehicle> getAllVehicles() {
         return new ArrayList<Vehicle>(vehicles.values());
     }
 }
