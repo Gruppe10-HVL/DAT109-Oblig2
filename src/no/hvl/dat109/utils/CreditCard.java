@@ -21,4 +21,8 @@ public class CreditCard {
         return creditCardString.length() == 16;
     }
 
+    public void setCardNumber(long creditCardNr) {
+        this.creditcardNumber = creditCardNr;
+    }
+
 }
