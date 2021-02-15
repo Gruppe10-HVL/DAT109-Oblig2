@@ -113,10 +113,10 @@ public class ReservationController {
 
         System.out.println("Booking complete");
 
-        return true;
         // TODO Add reservation to rental company
         company.addReservation(reservation);
 
-        return;
+        return true;
+
     }
 }
