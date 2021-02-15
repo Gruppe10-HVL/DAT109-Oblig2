@@ -1,16 +1,19 @@
 package no.hvl.dat109.models;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
+import java.time.LocalTime;
 
 public class Reservation {
 
     private Vehicle vehicle;
-    private LocalDateTime fromDate, fromTime;
+    private LocalDate fromDate;
+    LocalTime fromTime;
     private int days;
     private Office rentalOffice, returnOffice;
     private Customer customer;
 
-    public Reservation(Vehicle vehicle, LocalDateTime fromDate, LocalDateTime fromTime, int days, Office rentalOffice, Office returnOffice, Customer customer) {
+    public Reservation(Vehicle vehicle, LocalDate fromDate, LocalTime fromTime, int days, Office rentalOffice,
+            Office returnOffice, Customer customer) {
         this.vehicle = vehicle;
         this.fromDate = fromDate;
         this.fromTime = fromTime;
@@ -28,19 +31,19 @@ public class Reservation {
         this.vehicle = vehicle;
     }
 
-    public LocalDateTime getFromDate() {
+    public LocalDate getFromDate() {
         return fromDate;
     }
 
-    public void setFromDate(LocalDateTime fromDate) {
+    public void setFromDate(LocalDate fromDate) {
         this.fromDate = fromDate;
     }
 
-    public LocalDateTime getFromTime() {
+    public LocalTime getFromTime() {
         return fromTime;
     }
 
-    public void setFromTime(LocalDateTime fromTime) {
+    public void setFromTime(LocalTime fromTime) {
         this.fromTime = fromTime;
     }
 
@@ -74,11 +77,11 @@ public class Reservation {
 
     public void setCustomer(Customer customer) {
         this.customer = customer;
-    }    
-    
+    }
+
     public void book(Vehicle vehicle) {
-        LocalDateTime currentDate = LocalDateTime.now();
-        LocalDateTime endDate = fromDate.plusDays(days);
+        LocalDate currentDate = LocalDate.now();
+        LocalDate endDate = fromDate.plusDays(days);
 
         if (currentDate.isAfter(fromDate) && currentDate.isBefore(endDate)) {
             vehicle.setAvailable(false);

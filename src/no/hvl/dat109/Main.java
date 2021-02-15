@@ -18,12 +18,12 @@ public class Main {
         boolean exit = false;
         Company c = new Company("test", new Address("null", 123, "null"), "12345678"); // Dummy company, remove later.
         System.out.println("Hello and welcome to Rent-a-complete-wreck Bilutleie AS");
-        System.out.println("Would you like to:");
-        System.out.println("1. Make a reservation");
-        System.out.println("2. Finalize and pick up your reserved car");
-        System.out.println("3. Return your rental vehicle");
-        System.out.println("4. Exit our customer system.");
         while (!exit) {
+            System.out.println("Would you like to:");
+            System.out.println("1. Make a reservation");
+            System.out.println("2. Finalize and pick up your reserved car");
+            System.out.println("3. Return your rental vehicle");
+            System.out.println("4. Exit our customer system.");
             int choice = scn.nextInt();
             switch (choice) {
                 case 1:
@@ -46,7 +46,7 @@ public class Main {
                     break;
             }
         }
-        System.out.println("Thank you for using Rent-a-complete-wreck Bilutleie AS");
+        System.out.println("Thank you for using Rent-a-complete-wreck Bilutleie AS.");
         scn.close();
     }
 

@@ -1,16 +1,16 @@
 package no.hvl.dat109.models;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 import no.hvl.dat109.utils.CreditCard;
 
 public class Return {
     private CreditCard creditCard;
-    private LocalDateTime currentDate;
+    private LocalDate currentDate;
     private String regnr;
     private int mileage;
 
-    public Return(CreditCard creditCard, LocalDateTime currentDate, String regnr, int mileage) {
+    public Return(CreditCard creditCard, LocalDate currentDate, String regnr, int mileage) {
         this.creditCard = creditCard;
         this.currentDate = currentDate;
         this.regnr = regnr;
@@ -25,11 +25,11 @@ public class Return {
         this.creditCard = creditCard;
     }
 
-    public LocalDateTime getCurrentDate() {
+    public LocalDate getCurrentDate() {
         return currentDate;
     }
 
-    public void setCurrentDate(LocalDateTime currentDate) {
+    public void setCurrentDate(LocalDate currentDate) {
         this.currentDate = currentDate;
     }
 
@@ -48,7 +48,5 @@ public class Return {
     public void setMileage(int mileage) {
         this.mileage = mileage;
     }
-
-    
 
 }

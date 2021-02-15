@@ -1,15 +1,15 @@
 package no.hvl.dat109.models;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 public abstract class Booking {
-    
+
     private Office office;
     private int id, regnr;
     private Customer customer;
-    private LocalDateTime fromDate, toDate;
+    private LocalDate fromDate, toDate;
 
-    public Booking(int id, Office office, int regnr, Customer customer, LocalDateTime fromDate, LocalDateTime toDate) {
+    public Booking(int id, Office office, int regnr, Customer customer, LocalDate fromDate, LocalDate toDate) {
         this.id = id;
         this.office = office;
         this.regnr = regnr;
@@ -50,21 +50,20 @@ public abstract class Booking {
         this.customer = customer;
     }
 
-    public LocalDateTime getFromDate() {
+    public LocalDate getFromDate() {
         return fromDate;
     }
 
-    public void setFromDate(LocalDateTime fromDate) {
+    public void setFromDate(LocalDate fromDate) {
         this.fromDate = fromDate;
     }
 
-    public LocalDateTime getToDate() {
+    public LocalDate getToDate() {
         return toDate;
     }
 
-    public void setToDate(LocalDateTime toDate) {
+    public void setToDate(LocalDate toDate) {
         this.toDate = toDate;
     }
 
-
-}   
+}

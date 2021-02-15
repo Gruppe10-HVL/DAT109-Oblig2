@@ -1,6 +1,7 @@
 package no.hvl.dat109.models;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -9,7 +10,7 @@ import java.util.stream.Collectors;
 import no.hvl.dat109.utils.Group;
 
 public class Office {
-    
+
     private int officenr, phonenr;
     private Address address;
     private Map<String, Vehicle> vehicles;
@@ -20,6 +21,14 @@ public class Office {
         this.address = address;
         this.phonenr = phonenr;
         this.vehicles = new HashMap<String, Vehicle>();
+        this.bookings = new HashMap<Integer, ArrayList<Booking>>();
+    }
+
+    public Office(int officenr, Address address, int phonenr, Map<String, Vehicle> vehicles) {
+        this.officenr = officenr;
+        this.address = address;
+        this.phonenr = phonenr;
+        this.vehicles = vehicles;
         this.bookings = new HashMap<Integer, ArrayList<Booking>>();
     }
 
@@ -75,14 +84,14 @@ public class Office {
         vehicles.remove(vehicle.getRegnr());
     }
 
-    public Reservation createReservation(Vehicle v, LocalDateTime fromDate, LocalDateTime fromTime, int days, Office rentalOffice, Office returnOffice, Customer customer) {
+    public Reservation createReservation(Vehicle v, LocalDate fromDate, LocalTime fromTime, int days,
+            Office rentalOffice, Office returnOffice, Customer customer) {
         return new Reservation(v, fromDate, fromTime, days, rentalOffice, returnOffice, customer);
     }
 
     public ArrayList<Vehicle> getAllVehiclesByGroup(Group group) {
-        return vehicles.values()
-            .stream().filter(x -> x.getGroup().compareTo(group) == 0)
-            .collect(Collectors.toCollection(ArrayList::new));
+        return vehicles.values().stream().filter(x -> x.getGroup().compareTo(group) == 0)
+                .collect(Collectors.toCollection(ArrayList::new));
     }
 
     public ArrayList<Vehicle> getAllVehicles() {

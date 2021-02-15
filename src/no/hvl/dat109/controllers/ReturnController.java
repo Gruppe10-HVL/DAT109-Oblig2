@@ -1,6 +1,6 @@
 package no.hvl.dat109.controllers;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Scanner;
 
@@ -12,29 +12,25 @@ import no.hvl.dat109.models.Vehicle;
 import no.hvl.dat109.utils.CreditCard;
 
 public class ReturnController {
-    
-    public static void returnVehicle(Company company) {
+
+    public static boolean returnVehicle(Company company) {
         Scanner sc = new Scanner(System.in);
-        LocalDateTime currentDate = LocalDateTime.now();
-        
+        LocalDate currentDate = LocalDate.now();
+
         System.out.println("Phone number:");
         int phonenr = sc.nextInt();
         sc.nextLine();
 
         List<Reservation> allReservations = company.getReservations();
 
-        Reservation reservation = allReservations.stream()
-                            .filter(r -> phonenr == r.getCustomer().getPhonenr())
-                            .findAny()
-                            .orElse(null);
+        Reservation reservation = allReservations.stream().filter(r -> phonenr == r.getCustomer().getPhonenr())
+                .findAny().orElse(null);
 
         if (reservation == null) {
             System.out.println("No reservation with that phone number.");
             sc.close();
             return;
         }
-
-        
 
         System.out.println("Enter current mileage:");
         int mileage = sc.nextInt();
@@ -56,6 +52,7 @@ public class ReturnController {
         List<Return> returnedVehicles = company.getReturnedCars();
         returnedVehicles.add(returnVehicle);
 
+        return true;
         // TODO: return to client
 
     }

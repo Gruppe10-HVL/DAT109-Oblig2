@@ -1,6 +1,6 @@
 package no.hvl.dat109.controllers;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Scanner;
 
@@ -11,9 +11,9 @@ import no.hvl.dat109.utils.CreditCard;
 
 public class RentalController {
 
-    public static void rental(Company company) {
+    public static boolean rental(Company company) {
         Scanner sc = new Scanner(System.in);
-    
+
         System.out.println("Phone number:");
         int phonenr = sc.nextInt();
         sc.nextLine();
@@ -29,8 +29,8 @@ public class RentalController {
             return;
         }
 
-        LocalDateTime rentalDate = reservation.getFromDate();
-        LocalDateTime returnDate = rentalDate.plusDays(reservation.getDays());
+        LocalDate rentalDate = reservation.getFromDate();
+        LocalDate returnDate = rentalDate.plusDays(reservation.getDays());
 
         System.out.println("Credit card number:");
         long creditCardNr = sc.nextLong();
@@ -52,6 +52,8 @@ public class RentalController {
         Rental rental = new Rental(creditCard, regnr, mileage, rentalDate, returnDate);
         company.addRentedVehicle(rental);
         System.out.println("Rental complete!");
+
+        return true;
 
         // TODO: return to client
     }
