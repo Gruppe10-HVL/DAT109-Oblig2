@@ -26,7 +26,7 @@ public class RentalController {
         if (reservation == null) {
             System.out.println("No reservations with that phone number.");
             sc.close();
-            return;
+            return false;
         }
 
         LocalDate rentalDate = reservation.getFromDate();

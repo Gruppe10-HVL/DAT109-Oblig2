@@ -3,6 +3,7 @@ package no.hvl.dat109.models;
 import java.time.LocalDate;
 
 import no.hvl.dat109.utils.CreditCard;
+import no.hvl.dat109.utils.Address;
 
 public class Customer {
 

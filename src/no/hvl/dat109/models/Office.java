@@ -8,6 +8,7 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 import no.hvl.dat109.utils.Group;
+import no.hvl.dat109.utils.Address;
 
 public class Office {
 
