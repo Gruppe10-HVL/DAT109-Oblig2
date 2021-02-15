@@ -7,7 +7,7 @@ import no.hvl.dat109.models.Address;
 
 public class Constants {
 
-    public static final String DATE_TIME_FORMAT = "E, dd MMM yyyy HH:mm:ss Z";
+    public static final String DATE_TIME_FORMAT = "dd-MM-yyyy hh:mm";
 
     public static final String DATE_FORMAT = "dd/MM/yyyy";
 
