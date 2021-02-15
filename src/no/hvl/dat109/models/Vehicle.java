@@ -22,6 +22,10 @@ public class Vehicle {
 		bookings = new ArrayList<Booking>();
 	}
 
+	public Vehicle(int regnr, String make, String model, Group group) {
+		this(regnr, make, model, group, 0.0);
+	}
+
 	public Vehicle(boolean t) {
 		this.regnr = 12345;
 		this.make = "BMW";
