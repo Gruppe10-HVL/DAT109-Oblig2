@@ -8,6 +8,7 @@ import no.hvl.dat109.models.Company;
 import no.hvl.dat109.models.Customer;
 import no.hvl.dat109.models.Rental;
 import no.hvl.dat109.models.Reservation;
+import no.hvl.dat109.utils.CreditCard;
 
 public class RentalController {
     
