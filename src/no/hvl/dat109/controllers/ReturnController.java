@@ -34,7 +34,7 @@ public class ReturnController {
         LocalDateTime currentDate = LocalDateTime.now();
 
         System.out.println("Enter current mileage:");
-        double mileage = sc.nextDouble();
+        int mileage = sc.nextInt();
         sc.nextLine();
 
         Vehicle vehicle = reservation.getVehicle();

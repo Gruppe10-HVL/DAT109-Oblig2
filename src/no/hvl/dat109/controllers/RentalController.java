@@ -14,7 +14,7 @@ public class RentalController {
     public static void rental(Company company) {
         Scanner sc = new Scanner(System.in);
     
-        System.out.println("Phonenumber:");
+        System.out.println("Phone number:");
         int phonenr = sc.nextInt();
         sc.nextLine();
         
