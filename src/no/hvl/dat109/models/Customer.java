@@ -1,11 +1,11 @@
 package no.hvl.dat109.models;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 import no.hvl.dat109.utils.CreditCard;
 
 public class Customer {
-    
+
     private String firstname, surname;
     private Address address; // Change to address object later
     private int phonenr;
