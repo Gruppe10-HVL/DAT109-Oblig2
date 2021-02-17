@@ -11,7 +11,7 @@ import no.hvl.dat109.util.CreditCard;
 public class Rental {
 
     private CreditCard creditCard;
-    private String regnr;
+    private Vehicle vehicle;
     private int startMileage, endMileage;
     private LocalDate rentalDate, returnDate;
     private boolean returned;
@@ -25,18 +25,14 @@ public class Rental {
      * @param returnDate Return date of rental
      * @param returned If vehicle is returned or not
      */
-    public Rental(CreditCard creditCard, String regnr, int startMileage, LocalDate rentalDate, LocalDate returnDate,
-            boolean returned) {
+    public Rental(CreditCard creditCard, Vehicle vehicle, int startMileage, LocalDate rentalDate, LocalDate returnDate) {
         this.creditCard = creditCard;
-        this.regnr = regnr;
+        this.vehicle = vehicle;
         this.startMileage = startMileage;
         this.endMileage = startMileage; // initialized to startMileage, changed on return
         this.rentalDate = rentalDate;
         this.returnDate = returnDate;
         this.returned = false; // Initialized to false, changed on return
-    }
-
-    public Rental(CreditCard creditCard2, String regnr2, int mileage, LocalDate rentalDate2, LocalDate returnDate2) {
     }
 
     public CreditCard getCreditCard() {
@@ -47,12 +43,12 @@ public class Rental {
         this.creditCard = creditCard;
     }
 
-    public String getRegnr() {
-        return regnr;
+    public Vehicle getVehicle() {
+        return vehicle;
     }
 
-    public void setRegnr(String regnr) {
-        this.regnr = regnr;
+    public void setvehicle(Vehicle vehicle) {
+        this.vehicle = vehicle;
     }
 
     public int getStartMileage() {
