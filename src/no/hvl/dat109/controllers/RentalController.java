@@ -53,8 +53,8 @@ public class RentalController {
         company.addRentedVehicle(rental);
         System.out.println("Rental complete!");
 
+        sc.close();
         return true;
 
-        // TODO: return to client
     }
 }

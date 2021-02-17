@@ -14,7 +14,7 @@ public class Main {
     }
 
     public static void run() {
-        Scanner scn = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
         boolean exit = false;
         Company c = new Company("test", new Address("null", 123, "null"), "12345678"); // Dummy company, remove later.
         System.out.println("Hello and welcome to Rent-a-complete-wreck Bilutleie AS");
@@ -24,7 +24,8 @@ public class Main {
             System.out.println("2. Finalize and pick up your reserved car");
             System.out.println("3. Return your rental vehicle");
             System.out.println("4. Exit our customer system.");
-            int choice = scn.nextInt();
+            int choice = sc.nextInt();
+            sc.nextLine();
             switch (choice) {
                 case 1:
                     ReservationController.bookVehicle(c);
@@ -47,7 +48,7 @@ public class Main {
             }
         }
         System.out.println("Thank you for using Rent-a-complete-wreck Bilutleie AS.");
-        scn.close();
+        sc.close();
     }
 
 }

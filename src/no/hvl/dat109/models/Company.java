@@ -72,14 +72,26 @@ public class Company {
         reservations.add(reservation);
     }
 
+    /**
+     * 
+     * @param rental
+     */
     public void addRentedVehicle(Rental rental) {
         rentals.add(rental);
     }
 
+    /**
+     * 
+     * @param office
+     */
     public void addOffice(Office office) {
         offices.add(office);
     }
 
+    /**
+     * 
+     * @param returnVehicle
+     */
     public void addReturnedVehicle(Return returnVehicle) {
         returns.add(returnVehicle);
     }
