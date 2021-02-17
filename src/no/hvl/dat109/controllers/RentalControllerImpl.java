@@ -17,7 +17,6 @@ import no.hvl.dat109.models.Return;
 import no.hvl.dat109.models.Vehicle;
 import no.hvl.dat109.utils.Address;
 import no.hvl.dat109.utils.CreditCard;
-import no.hvl.dat109.utils.Dummy;
 
 public class RentalControllerImpl implements RentalController {
 
@@ -34,7 +33,7 @@ public class RentalControllerImpl implements RentalController {
     @Override
     public void bookVehicle() {
         DateTimeFormatter dtf;
-        List<Office> offices = Dummy.dummyOffices();
+        List<Office> offices = company.getOffices();
         LocalDate date;
         LocalTime time;
         Scanner sc = new Scanner(System.in);
