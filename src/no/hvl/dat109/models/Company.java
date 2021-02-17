@@ -12,7 +12,6 @@ public class Company {
     private List<Reservation> reservations;
     private List<Office> offices;
     private List<Rental> rentals;
-    private List<Return> returns;
 
     /**
      * 
@@ -27,7 +26,6 @@ public class Company {
         this.reservations = new ArrayList<Reservation>();
         this.offices = new ArrayList<Office>();
         this.rentals = new ArrayList<Rental>();
-        this.returns = new ArrayList<Return>();
     }
 
     public Company(String name, Address address, int phonenr, List<Office> offices) {
@@ -37,7 +35,6 @@ public class Company {
         this.offices = offices;
         this.reservations = new ArrayList<Reservation>();
         this.rentals = new ArrayList<Rental>();
-        this.returns = new ArrayList<Return>();
     }
 
     public String getName() {
@@ -76,10 +73,6 @@ public class Company {
         return rentals;
     }
 
-    public List<Return> getReturnedCars() {
-        return returns;
-    }
-
     /**
      * 
      * @param reservation
@@ -102,14 +95,6 @@ public class Company {
      */
     public void addOffice(Office office) {
         offices.add(office);
-    }
-
-    /**
-     * 
-     * @param returnVehicle
-     */
-    public void addReturnedVehicle(Return returnVehicle) {
-        returns.add(returnVehicle);
     }
 
     @Override

@@ -91,7 +91,6 @@ public class Vehicle {
 		this.available = available;
 	}
 
-
 	@Override
 	public String toString() {
 		return "\nMake:" + make + "\nModel:" + model + "\nDaily Price:" + dailyPrice + "\n Vehicle Group:" + group

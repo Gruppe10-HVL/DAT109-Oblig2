@@ -216,11 +216,8 @@ public class RentalControllerImpl implements RentalController {
         System.out.println("Receipt sent.");
         CreditCard creditCard = reservation.getCustomer().getCreditCard();
 
+        // reservation.getRental
         allReservations.remove(reservation);
-
-        Return returnVehicle = new Return(creditCard, currentDate, vehicle.getRegnr(), mileage);
-        List<Return> returnedVehicles = company.getReturnedCars();
-        returnedVehicles.add(returnVehicle);
 
     }
 }
