@@ -45,12 +45,11 @@ public class RentalControllerImpl implements RentalController {
     }
 
     @Override
-    public void bookVehicle() {
+    public void bookVehicle(Scanner sc) {
         DateTimeFormatter dtf;
         List<Office> offices = company.getOffices();
         LocalDate date;
         LocalTime time;
-        Scanner sc = new Scanner(System.in); // cant close scanner in method, will crash client
         System.out.println("Here is a list of our available offices: ");
         offices.forEach(System.out::println);
         System.out.println("Rental office:");
@@ -137,8 +136,7 @@ public class RentalControllerImpl implements RentalController {
     }
 
     @Override
-    public void rentVehicle() {
-        Scanner sc = new Scanner(System.in); // cant close scanner in method, will crash client
+    public void rentVehicle(Scanner sc) {
 
         System.out.println("Phone number:");
         int phonenr = sc.nextInt();
@@ -182,8 +180,7 @@ public class RentalControllerImpl implements RentalController {
     }
 
     @Override
-    public void returnVehicle() {
-        Scanner sc = new Scanner(System.in); // cant close scanner in method, will crash client
+    public void returnVehicle(Scanner sc) {
 
         System.out.println("Phone number:");
         int phonenr = sc.nextInt();

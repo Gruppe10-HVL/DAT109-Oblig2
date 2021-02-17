@@ -1,6 +1,7 @@
 package no.hvl.dat109;
 
 import java.util.Scanner;
+
 import no.hvl.dat109.controller.RentalControllerImpl;
 import no.hvl.dat109.util.Dummy;
 import no.hvl.dat109.model.Company;
@@ -14,7 +15,7 @@ public class Client {
     public static void run() {
         Scanner sc = new Scanner(System.in);
         boolean exit = false;
-        Company company = Dummy.dummyCompany1();
+        Company company = Dummy.dummyCompany();
         System.out.println("Hello and welcome to " + company.getName());
         RentalControllerImpl controller = new RentalControllerImpl(company);
 
@@ -28,14 +29,14 @@ public class Client {
             sc.nextLine();
             switch (choice) {
                 case 1:
-                    controller.bookVehicle();
+                    controller.bookVehicle(sc);
                     break;
 
                 case 2:
-                    controller.rentVehicle();
+                    controller.rentVehicle(sc);
                     break;
                 case 3:
-                    controller.returnVehicle();
+                    controller.returnVehicle(sc);
                     break;
 
                 case 4:
