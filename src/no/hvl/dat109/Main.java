@@ -1,9 +1,7 @@
 package no.hvl.dat109;
 
 import java.util.Scanner;
-import no.hvl.dat109.controllers.ReservationControllerImpl;
 import no.hvl.dat109.controllers.RentalControllerImpl;
-import no.hvl.dat109.controllers.ReturnControllerImpl;
 import no.hvl.dat109.utils.Dummy;
 import no.hvl.dat109.utils.Address;
 import no.hvl.dat109.models.Company;
@@ -19,6 +17,11 @@ public class Main {
         boolean exit = false;
         Company c = Dummy.dummyCompany(); // Dummy company, remove later.
         System.out.println("Hello and welcome to Rent-a-complete-wreck Bilutleie AS");
+        
+        // TODO: Choose company
+        
+        RentalControllerImpl controller = new RentalControllerImpl();
+
         while (!exit) {
             System.out.println("Would you like to:");
             System.out.println("1. Make a reservation");
@@ -29,14 +32,14 @@ public class Main {
             sc.nextLine();
             switch (choice) {
                 case 1:
-                    ReservationControllerImpl.bookVehicle(c);
+                    controller.bookVehicle();
                     break;
 
                 case 2:
-                    RentalControllerImpl.rental(c);
+                    controller.rentVehicle();
                     break;
                 case 3:
-                    ReturnControllerImpl.returnVehicle(c);
+                    controller.returnVehicle();
                     break;
 
                 case 4:
