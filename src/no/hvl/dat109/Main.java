@@ -4,6 +4,7 @@ import java.util.Scanner;
 import no.hvl.dat109.controllers.ReservationControllerImpl;
 import no.hvl.dat109.controllers.RentalControllerImpl;
 import no.hvl.dat109.controllers.ReturnControllerImpl;
+import no.hvl.dat109.utils.Dummy;
 import no.hvl.dat109.utils.Address;
 import no.hvl.dat109.models.Company;
 
@@ -16,7 +17,7 @@ public class Main {
     public static void run() {
         Scanner sc = new Scanner(System.in);
         boolean exit = false;
-        Company c = new Company("test", new Address("null", 123, "null"), "12345678"); // Dummy company, remove later.
+        Company c = Dummy.dummyCompany(); // Dummy company, remove later.
         System.out.println("Hello and welcome to Rent-a-complete-wreck Bilutleie AS");
         while (!exit) {
             System.out.println("Would you like to:");

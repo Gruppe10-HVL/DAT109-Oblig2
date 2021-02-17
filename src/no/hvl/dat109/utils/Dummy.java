@@ -3,6 +3,7 @@ package no.hvl.dat109.utils;
 import java.util.HashMap;
 import java.util.Map;
 
+import no.hvl.dat109.models.Company;
 import no.hvl.dat109.models.Vehicle;
 
 public class Dummy {
@@ -19,6 +20,10 @@ public class Dummy {
         dummyVehicles.put("st8", new Vehicle("st8", "Porsche", "Spyder", Group.MEDIUM, 1422000));
         dummyVehicles.put("st9", new Vehicle("st9", "Ferrarri", "LaFerrari", Group.MEDIUM, 214000));
         return dummyVehicles;
+    }
+
+    public static Company dummyCompany(){
+        return new Company("test", new Address("null", 123, "null"), 12345678);
     }
 
 }
