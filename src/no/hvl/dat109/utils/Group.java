@@ -6,10 +6,16 @@ public enum Group {
 
     public final int price;
 
+    /*
+     * @Constructor
+     */
     private Group(int price) {
         this.price = price;
     }
 
+    /*
+     * @return daily price of vehicle class
+     */
     public int getPrice() {
         return this.price;
     }

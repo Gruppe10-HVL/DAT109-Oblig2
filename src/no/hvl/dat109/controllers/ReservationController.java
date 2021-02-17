@@ -3,9 +3,7 @@ package no.hvl.dat109.controllers;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Scanner;
 import java.util.stream.Collectors;
 
@@ -22,44 +20,55 @@ import no.hvl.dat109.utils.Dummy;
 public class ReservationController {
 
     public static boolean bookVehicle(Company company) {
+        LocalDate date;
+        LocalTime time;
+        DateTimeFormatter dtf;
+        List<Office> offices = Dummy.dummyOffices();
         Scanner sc = new Scanner(System.in);
-        DateTimeFormatter dtf = DateTimeFormatter.BASIC_ISO_DATE;
 
-        System.out.println("Rental office:");
-        String rentalOfficeString = sc.nextLine();
+        System.out.println("Rental office: You may choose between:\n 1. Bergen\n 2. Oslo\n 3. Trondheim\n 4. Molde");
+        Office rentalOffice = offices.get(sc.nextInt());
+        sc.nextLine();
 
-        System.out.println("Return office:");
-        String returnOfficeString = sc.nextLine();
+        System.out.println("Return office: You may choose between:\n 1. Bergen\n 2. Oslo\n 3. Trondheim\n 4. Molde");
+        Office returnOffice = offices.get(sc.nextInt());
+        sc.nextLine();
 
-        System.out.println("Date: (dd/MM/yyyy)");
-        String dateString = sc.nextLine();
+        try {
+            System.out.println("Date: (dd/MM/yyyy)");
+            String dateString = sc.nextLine();
 
-        dtf = DateTimeFormatter.ofPattern(Constants.DATE_FORMAT);
-        LocalDate date = LocalDate.parse(dateString, dtf);
+            dtf = DateTimeFormatter.ofPattern(Constants.DATE_FORMAT);
+            date = LocalDate.parse(dateString, dtf);
+        } catch (Exception e) {
+            System.out.println("Please provide a valid date");
+            sc.close();
+            return false;
+        }
 
-        System.out.println("Time: (HH:mm)");
-        String timeString = sc.nextLine();
+        try {
+            System.out.println("Time: (HH:mm)");
+            String timeString = sc.nextLine();
 
-        dtf = DateTimeFormatter.ofPattern(Constants.TIME_FORMAT);
-        LocalTime time = LocalTime.parse(timeString, dtf);
+            dtf = DateTimeFormatter.ofPattern(Constants.TIME_FORMAT);
+            time = LocalTime.parse(timeString, dtf);
+        } catch (Exception e) {
+            System.out.println("Please provide a valid time");
+            sc.close();
+            return false;
+        }
 
-        System.out.println("Rental days:");
+        System.out.println("For how many consecutive dates do you wish to rent the car?:");
         int days = sc.nextInt();
         sc.nextLine();
 
-        Office rentalOffice2 = new Office(3, new Address("", 0, ""), 3, Dummy.dummyVehicleList());
-
-        Office rentalOffice = new Office(1, new Address("", 0, ""), 1); // TODO: stream company office list
-        Office returnOffice = new Office(2, new Address("", 0, ""), 2); // TODO: stream company office list
-
-        List<Vehicle> vehicles = rentalOffice2.getAllVehicles();
+        List<Vehicle> vehicles = rentalOffice.getAllVehicles();
 
         // TODO: Change to Group stream
-        List<Vehicle> availableVehicles = vehicles.stream().filter(v -> v.isAvailable() == true)
-                .collect(Collectors.toList());
+        List<Vehicle> availableVehicles = vehicles.stream().filter(v -> v.isAvailable()).collect(Collectors.toList());
 
         System.out.println("Available vehicles:");
-        availableVehicles.stream().forEach(System.out::println); // TODO: Change to toString
+        availableVehicles.stream().forEach(v -> v.toString());
 
         // TODO: Select vehicle based on Group
         System.out.println("Registration number:");

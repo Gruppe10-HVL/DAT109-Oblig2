@@ -1,9 +1,12 @@
 package no.hvl.dat109.utils;
 
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import no.hvl.dat109.models.Company;
+import no.hvl.dat109.models.Office;
 import no.hvl.dat109.models.Vehicle;
 
 public class Dummy {
@@ -22,8 +25,17 @@ public class Dummy {
         return dummyVehicles;
     }
 
-    public static Company dummyCompany(){
+    public static Company dummyCompany() {
         return new Company("test", new Address("null", 123, "null"), 12345678);
+    }
+
+    public static List<Office> dummyOffices() {
+        Office off[] = new Office[] { new Office(1, new Address("", 0, ""), 1, Dummy.dummyVehicleList()),
+                new Office(2, new Address("", 0, ""), 2, Dummy.dummyVehicleList()),
+                new Office(3, new Address("", 0, ""), 3, Dummy.dummyVehicleList()),
+                new Office(4, new Address("", 0, ""), 4, Dummy.dummyVehicleList()) };
+
+        return Arrays.asList(off);
     }
 
 }
