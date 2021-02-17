@@ -17,7 +17,7 @@ import no.hvl.dat109.models.Office;
 import no.hvl.dat109.models.Reservation;
 import no.hvl.dat109.models.Vehicle;
 import no.hvl.dat109.utils.Group;
-import no.hvl.dat109.utils.DummyVehicles;
+import no.hvl.dat109.utils.Dummy;
 
 public class ReservationController {
 
@@ -47,7 +47,7 @@ public class ReservationController {
         int days = sc.nextInt();
         sc.nextLine();
 
-        Map<String, Vehicle> dummyVehicles = DummyVehicles.dummyVehicleList();
+        Map<String, Vehicle> dummyVehicles = Dummy.dummyVehicleList();
         Office rentalOffice2 = new Office(3, new Address("", 0, ""), 3, dummyVehicles);
 
         Office rentalOffice = new Office(1, new Address("", 0, ""), 1); // TODO: stream company office list
@@ -100,7 +100,7 @@ public class ReservationController {
         System.out.println("Booking complete");
 
         company.addReservation(reservation);
-        
+
         sc.close();
         return true;
     }

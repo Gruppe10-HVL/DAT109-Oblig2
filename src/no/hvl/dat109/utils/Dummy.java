@@ -5,7 +5,7 @@ import java.util.Map;
 
 import no.hvl.dat109.models.Vehicle;
 
-public class DummyVehicles {
+public class Dummy {
 
     public static Map<String, Vehicle> dummyVehicleList() {
         Map<String, Vehicle> dummyVehicles = new HashMap<>();
