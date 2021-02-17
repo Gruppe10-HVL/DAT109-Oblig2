@@ -35,4 +35,9 @@ public class Address {
         this.postalCode = postalCode;
     }
 
+    @Override
+    public String toString() {
+        return "\nStreet: " + street + "\nArea: " + postalAddress;
+    }
+
 }

@@ -13,7 +13,6 @@ import no.hvl.dat109.models.Customer;
 import no.hvl.dat109.models.Office;
 import no.hvl.dat109.models.Rental;
 import no.hvl.dat109.models.Reservation;
-import no.hvl.dat109.models.Return;
 import no.hvl.dat109.models.Vehicle;
 import no.hvl.dat109.utils.Address;
 import no.hvl.dat109.utils.CreditCard;
@@ -54,13 +53,14 @@ public class RentalControllerImpl implements RentalController {
         LocalDate date;
         LocalTime time;
         Scanner sc = new Scanner(System.in);
-
+        System.out.println("Here is a list of our available offices: ");
+        offices.forEach(System.out::println);
         System.out.println("Rental office:");
-        Office returnOffice = offices.get(sc.nextInt());
+        Office returnOffice = offices.get(sc.nextInt() - 1);
         sc.nextLine();
 
         System.out.println("Return office:");
-        Office rentalOffice = offices.get(sc.nextInt());
+        Office rentalOffice = offices.get(sc.nextInt() - 1);
         sc.nextLine();
 
         try {
@@ -215,8 +215,9 @@ public class RentalControllerImpl implements RentalController {
 
         System.out.println("Receipt sent.");
         CreditCard creditCard = reservation.getCustomer().getCreditCard();
-
-        // reservation.getRental
+        Rental rental = company.getRentals().stream().filter(r -> r.getCreditCard() == creditCard).findAny()
+                .orElse(null);
+        rental.setEndMileage(mileage);
         allReservations.remove(reservation);
 
     }

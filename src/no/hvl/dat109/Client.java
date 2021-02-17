@@ -16,7 +16,7 @@ public class Client {
         Scanner sc = new Scanner(System.in);
         boolean exit = false;
         Company company = Dummy.dummyCompany1();
-        System.out.println("Hello and welcome to" + company.getName());
+        System.out.println("Hello and welcome to " + company.getName());
         RentalControllerImpl controller = new RentalControllerImpl(company);
 
         while (!exit) {

@@ -112,4 +112,9 @@ public class Office {
     public ArrayList<Vehicle> getAllVehicles() {
         return new ArrayList<Vehicle>(vehicles.values());
     }
+
+    @Override
+    public String toString() {
+        return "\nOffice ID: " + officenr + address + "\nPhone number: " + phonenr + "\n";
+    }
 }
