@@ -3,7 +3,6 @@ package no.hvl.dat109;
 import java.util.Scanner;
 import no.hvl.dat109.controllers.RentalControllerImpl;
 import no.hvl.dat109.utils.Dummy;
-import no.hvl.dat109.utils.Address;
 import no.hvl.dat109.models.Company;
 
 public class Main {
@@ -15,12 +14,12 @@ public class Main {
     public static void run() {
         Scanner sc = new Scanner(System.in);
         boolean exit = false;
-        Company c = Dummy.dummyCompany(); // Dummy company, remove later.
+        Company dummyCompany = Dummy.dummyCompany(); // Dummy company, remove later.
         System.out.println("Hello and welcome to Rent-a-complete-wreck Bilutleie AS");
         
         // TODO: Choose company
         
-        RentalControllerImpl controller = new RentalControllerImpl();
+        RentalControllerImpl controller = new RentalControllerImpl(dummyCompany);
 
         while (!exit) {
             System.out.println("Would you like to:");
