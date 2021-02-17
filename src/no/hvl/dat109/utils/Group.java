@@ -19,4 +19,5 @@ public enum Group {
     public int getPrice() {
         return this.price;
     }
+
 }
