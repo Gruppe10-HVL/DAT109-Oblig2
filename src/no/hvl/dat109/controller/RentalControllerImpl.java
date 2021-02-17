@@ -21,7 +21,7 @@ import no.hvl.dat109.util.CreditCard;
 import no.hvl.dat109.util.Group;
 
 /**
- * 
+ * Represents a controller for reservations, rentals and returns of vehicles.
  * @author
  */
 public class RentalControllerImpl implements RentalController {

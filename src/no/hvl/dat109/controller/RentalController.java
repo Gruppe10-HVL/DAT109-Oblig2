@@ -1,5 +1,9 @@
 package no.hvl.dat109.controller;
 
+/**
+ * Interface for rental controller.
+ * @author
+ */
 public interface RentalController {
     
     /**
@@ -8,7 +12,7 @@ public interface RentalController {
     public void bookVehicle();
 
     /**
-     * Creates a Rental-objekt with credit card and 
+     * Creates a Rental-object with credit card and 
      * vehicle registration number.
      */
     public void rentVehicle();
