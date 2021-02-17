@@ -2,6 +2,11 @@ package no.hvl.dat109.models;
 
 import java.time.LocalDate;
 
+/**
+ * 
+ * Might drop class.
+ * 
+ */
 public abstract class Booking {
 
     private Office office;

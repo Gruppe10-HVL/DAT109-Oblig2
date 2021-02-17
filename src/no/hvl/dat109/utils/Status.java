@@ -1,5 +1,10 @@
 package no.hvl.dat109.utils;
 
+/**
+ * 
+ * Maybe delete class
+ * 
+ */
 public enum Status {
     O("Ongoing"), F("Finished"), C("Cancelled");
 
