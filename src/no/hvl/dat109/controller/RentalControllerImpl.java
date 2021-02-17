@@ -214,12 +214,14 @@ public class RentalControllerImpl implements RentalController {
         Rental rental = company.getRentals().stream().filter(r -> r.getCreditCard() == creditCard).findAny()
                 .orElse(null);
         int totalPrice = PaymentHandler.totalPrice(vehicle, rental);
+        
         /*
          * 
          * It was not mentioned in the assignment, but now that we have a customers
          * credit card info and the total price, we may bill him. i.e:
          * makePayment(creditCard, totalPrice);
          */
+
         if (rental == null) {
             System.out.println("An error has occurred, please call customer service.");
         } else {
