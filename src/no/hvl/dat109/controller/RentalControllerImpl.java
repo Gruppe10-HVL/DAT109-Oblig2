@@ -19,9 +19,11 @@ import no.hvl.dat109.util.Address;
 import no.hvl.dat109.util.Constants;
 import no.hvl.dat109.util.CreditCard;
 import no.hvl.dat109.util.Group;
+import no.hvl.dat109.util.PaymentHandler;
 
 /**
  * Represents a controller for reservations, rentals and returns of vehicles.
+ * 
  * @author
  */
 public class RentalControllerImpl implements RentalController {
@@ -208,16 +210,23 @@ public class RentalControllerImpl implements RentalController {
         Office returnOffice = reservation.getReturnOffice();
         returnOffice.addVehicle(vehicle);
 
-        System.out.println("Receipt sent.");
         CreditCard creditCard = reservation.getCustomer().getCreditCard();
         Rental rental = company.getRentals().stream().filter(r -> r.getCreditCard() == creditCard).findAny()
                 .orElse(null);
+        int totalPrice = PaymentHandler.totalPrice(vehicle, rental);
+        /*
+         * 
+         * It was not mentioned in the assignment, but now that we have a customers
+         * credit card info and the total price, we may bill him. i.e:
+         * makePayment(creditCard, totalPrice);
+         */
         if (rental == null) {
             System.out.println("An error has occurred, please call customer service.");
         } else {
             rental.setReturned(true);
             rental.setEndMileage(mileage);
             allReservations.remove(reservation);
+            System.out.println("Receipt sent.");
         }
     }
 }
