@@ -1,9 +1,9 @@
 package no.hvl.dat109;
 
 import java.util.Scanner;
-import no.hvl.dat109.controllers.ReservationController;
-import no.hvl.dat109.controllers.RentalController;
-import no.hvl.dat109.controllers.ReturnController;
+import no.hvl.dat109.controllers.ReservationControllerImpl;
+import no.hvl.dat109.controllers.RentalControllerImpl;
+import no.hvl.dat109.controllers.ReturnControllerImpl;
 import no.hvl.dat109.utils.Address;
 import no.hvl.dat109.models.Company;
 
@@ -28,14 +28,14 @@ public class Main {
             sc.nextLine();
             switch (choice) {
                 case 1:
-                    ReservationController.bookVehicle(c);
+                    ReservationControllerImpl.bookVehicle(c);
                     break;
 
                 case 2:
-                    RentalController.rental(c);
+                    RentalControllerImpl.rental(c);
                     break;
                 case 3:
-                    ReturnController.returnVehicle(c);
+                    ReturnControllerImpl.returnVehicle(c);
                     break;
 
                 case 4:
