@@ -184,7 +184,6 @@ public class RentalControllerImpl implements RentalController {
     @Override
     public void returnVehicle() {
         Scanner sc = new Scanner(System.in); // cant close scanner in method, will crash client
-        LocalDate currentDate = LocalDate.now();
 
         System.out.println("Phone number:");
         int phonenr = sc.nextInt();
