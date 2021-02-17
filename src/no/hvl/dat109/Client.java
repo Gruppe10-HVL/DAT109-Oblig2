@@ -15,11 +15,7 @@ public class Client {
     public static void run() {
         Scanner sc = new Scanner(System.in);
         boolean exit = false;
-        List<Company> companiesList = Dummy.dummyCompanies(); // Dummy company, remove later.
-        System.out.println("Please select your preferred rental company");
-        companiesList.stream().forEach(System.out::println);
-        Company company = companiesList.get(sc.nextInt());
-        sc.nextLine();
+        Company company = Dummy.dummyCompany1();
         System.out.println("Hello and welcome to" + company.getName());
         RentalControllerImpl controller = new RentalControllerImpl(company);
 

@@ -81,7 +81,7 @@ public class RentalControllerImpl implements RentalController {
 
         // TODO: Select vehicle based on Group
         System.out.println("Registration number:");
-        String regnr = sc.nextLine().toLowerCase();
+        String regnr = sc.nextLine().toUpperCase();
 
         Vehicle vehicle = availableVehicles.stream().filter(v -> v.getRegnr().equals(regnr)).findAny().orElse(null);
 
