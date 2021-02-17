@@ -219,9 +219,10 @@ public class RentalControllerImpl implements RentalController {
                 .orElse(null);
         if (rental == null) {
             System.out.println("An error has occurred, please call customer service.");
+        } else {
+            rental.setReturned(true);
+            rental.setEndMileage(mileage);
+            allReservations.remove(reservation);
         }
-        rental.setEndMileage(mileage);
-        allReservations.remove(reservation);
-
     }
 }
