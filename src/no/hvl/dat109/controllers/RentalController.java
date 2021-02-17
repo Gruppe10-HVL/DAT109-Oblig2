@@ -3,6 +3,16 @@ package no.hvl.dat109.controllers;
 public interface RentalController {
     
     /**
+     * 
+     */
+    public void search();
+
+    /**
+     * 
+     */
+    public void searchByGroup(); 
+    
+    /**
      * Makes a reservation and saves customer info.
      */
     public void bookVehicle();
