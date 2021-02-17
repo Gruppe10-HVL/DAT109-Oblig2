@@ -2,9 +2,10 @@ package no.hvl.dat109.models;
 
 import java.util.ArrayList;
 import java.util.List;
+import no.hvl.dat109.utils.Address;
 
 public class Company {
-    
+
     // TODO: Change phonenr to int
     private String name, phonenr;
     private Address address;
@@ -46,7 +47,7 @@ public class Company {
     public void setAddress(Address address) {
         this.address = address;
     }
-    
+
     public List<Reservation> getReservations() {
         return reservations;
     }
@@ -54,7 +55,7 @@ public class Company {
     public List<Office> getOffices() {
         return offices;
     }
-    
+
     public List<Rental> getRentals() {
         return rentals;
     }
@@ -71,17 +72,28 @@ public class Company {
         reservations.add(reservation);
     }
 
+    /**
+     * 
+     * @param rental
+     */
     public void addRentedVehicle(Rental rental) {
         rentals.add(rental);
     }
 
+    /**
+     * 
+     * @param office
+     */
     public void addOffice(Office office) {
         offices.add(office);
     }
 
+    /**
+     * 
+     * @param returnVehicle
+     */
     public void addReturnedVehicle(Return returnVehicle) {
         returns.add(returnVehicle);
     }
-
 
 }

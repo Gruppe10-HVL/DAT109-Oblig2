@@ -3,7 +3,7 @@ package no.hvl.dat109.constants;
 import java.util.ArrayList;
 import java.util.List;
 
-import no.hvl.dat109.models.Address;
+import no.hvl.dat109.utils.Address;
 
 public class Constants {
 

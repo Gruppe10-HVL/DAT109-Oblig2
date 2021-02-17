@@ -10,7 +10,7 @@ import java.util.Scanner;
 import java.util.stream.Collectors;
 
 import no.hvl.dat109.constants.Constants;
-import no.hvl.dat109.models.Address;
+import no.hvl.dat109.utils.Address;
 import no.hvl.dat109.models.Company;
 import no.hvl.dat109.models.Customer;
 import no.hvl.dat109.models.Office;

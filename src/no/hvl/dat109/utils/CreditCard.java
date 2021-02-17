@@ -16,13 +16,16 @@ public class CreditCard {
         this.creditcardNumber = creditcardNumber;
     }
 
+    public void setCardNumber(long creditCardNr) {
+        this.creditcardNumber = creditCardNr;
+    }
+    
+    /**
+     * 
+     * @return
+     */
     public boolean validate() {
         String creditCardString = ("" + creditcardNumber);
         return creditCardString.length() == 16;
     }
-
-    public void setCardNumber(long creditCardNr) {
-        this.creditcardNumber = creditCardNr;
-    }
-
 }

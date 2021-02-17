@@ -4,7 +4,7 @@ import java.util.Scanner;
 import no.hvl.dat109.controllers.ReservationController;
 import no.hvl.dat109.controllers.RentalController;
 import no.hvl.dat109.controllers.ReturnController;
-import no.hvl.dat109.models.Address;
+import no.hvl.dat109.utils.Address;
 import no.hvl.dat109.models.Company;
 
 public class Main {

@@ -1,7 +1,7 @@
-package no.hvl.dat109.models;
+package no.hvl.dat109.utils;
 
 public class Address {
-    
+
     private String street, postalAddress;
     private int postalCode;
 

@@ -56,6 +56,5 @@ public class RentalController {
         sc.close();
         return true;
 
-        // TODO: return to client
     }
 }
