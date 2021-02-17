@@ -22,10 +22,17 @@ public class RentalControllerImpl implements RentalController {
 
     private Company company;
 
+    /**
+     * 
+     * @param company
+     */
     public RentalControllerImpl(Company company) {
         this.company = company;
     }
 
+    /**
+     * 
+     */
     public RentalControllerImpl() {
         this(null);
     }

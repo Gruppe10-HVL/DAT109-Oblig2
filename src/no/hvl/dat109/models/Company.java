@@ -14,6 +14,12 @@ public class Company {
     private List<Rental> rentals;
     private List<Return> returns;
 
+    /**
+     * 
+     * @param name
+     * @param address
+     * @param phonenr
+     */
     public Company(String name, Address address, int phonenr) {
         this.name = name;
         this.address = address;
