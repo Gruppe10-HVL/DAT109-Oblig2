@@ -1,10 +1,9 @@
 package no.hvl.dat109;
 
-import java.util.List;
 import java.util.Scanner;
-import no.hvl.dat109.controllers.RentalControllerImpl;
-import no.hvl.dat109.utils.Dummy;
-import no.hvl.dat109.models.Company;
+import no.hvl.dat109.controller.RentalControllerImpl;
+import no.hvl.dat109.util.Dummy;
+import no.hvl.dat109.model.Company;
 
 public class Client {
 
