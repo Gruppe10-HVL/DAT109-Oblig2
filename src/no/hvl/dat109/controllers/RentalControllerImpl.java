@@ -31,6 +31,16 @@ public class RentalControllerImpl implements RentalController {
     }
 
     @Override
+    public void search() {
+
+    }
+
+    @Override
+    public void searchByGroup() {
+        
+    }
+
+    @Override
     public void bookVehicle() {
         DateTimeFormatter dtf;
         List<Office> offices = company.getOffices();
