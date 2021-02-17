@@ -20,4 +20,11 @@ public enum Group {
         return this.price;
     }
 
+    public void getPriceAndName() {
+        System.out.println(this.name());
+        System.out.println("Price: " + this.price + "kr per day");
+        System.out.println("");
+
+    }
+
 }

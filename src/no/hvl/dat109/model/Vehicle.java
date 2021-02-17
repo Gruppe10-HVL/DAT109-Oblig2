@@ -1,7 +1,5 @@
 package no.hvl.dat109.model;
 
-import java.util.ArrayList;
-
 import no.hvl.dat109.util.Group;
 
 /**

@@ -29,6 +29,13 @@ public class Company {
         this.rentals = new ArrayList<Rental>();
     }
 
+    /**
+     * 
+     * @param name
+     * @param address
+     * @param phonenr
+     * @param offices
+     */
     public Company(String name, Address address, int phonenr, List<Office> offices) {
         this.name = name;
         this.address = address;

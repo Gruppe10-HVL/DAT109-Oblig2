@@ -30,6 +30,7 @@ public class RentalControllerImpl implements RentalController {
 
     /**
      * Creates a rental controller for a specified company.
+     * 
      * @param company
      */
     public RentalControllerImpl(Company company) {
@@ -86,9 +87,9 @@ public class RentalControllerImpl implements RentalController {
         int days = sc.nextInt();
         sc.nextLine();
 
-        System.out.println("Please select a vehicle group: (Write the full name of your preferred group)");
+        System.out.println("\nPlease select a vehicle group: (Write the full name of your preferred group)\n");
         List<Group> groupList = new ArrayList<>(Arrays.asList(Group.values()));
-        groupList.forEach(System.out::println);
+        groupList.forEach(v -> v.getPriceAndName());
         Group chosenGroup = Group.valueOf(sc.nextLine().toUpperCase());
         List<Vehicle> vehicles = rentalOffice.getAllVehicles();
         List<Vehicle> availableVehicles = vehicles.stream()
@@ -97,7 +98,6 @@ public class RentalControllerImpl implements RentalController {
         System.out.println("Available vehicles:");
         availableVehicles.stream().forEach(System.out::println);
 
-        // TODO: Select vehicle based on Group
         System.out.println("Registration number:");
         String regnr = sc.nextLine().toUpperCase();
 
@@ -134,7 +134,6 @@ public class RentalControllerImpl implements RentalController {
         System.out.println("Booking complete");
 
         company.addReservation(reservation);
-
     }
 
     @Override
