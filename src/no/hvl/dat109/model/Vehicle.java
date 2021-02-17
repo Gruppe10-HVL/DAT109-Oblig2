@@ -1,8 +1,8 @@
-package no.hvl.dat109.models;
+package no.hvl.dat109.model;
 
 import java.util.ArrayList;
 
-import no.hvl.dat109.utils.Group;
+import no.hvl.dat109.util.Group;
 
 /**
  * Represents a vehicle.

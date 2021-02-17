@@ -1,8 +1,9 @@
-package no.hvl.dat109.models;
+package no.hvl.dat109.model;
 
 import java.util.ArrayList;
 import java.util.List;
-import no.hvl.dat109.utils.Address;
+
+import no.hvl.dat109.util.Address;
 
 public class Company {
 

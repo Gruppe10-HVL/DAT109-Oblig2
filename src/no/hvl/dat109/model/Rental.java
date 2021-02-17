@@ -1,8 +1,8 @@
-package no.hvl.dat109.models;
+package no.hvl.dat109.model;
 
 import java.time.LocalDate;
 
-import no.hvl.dat109.utils.CreditCard;
+import no.hvl.dat109.util.CreditCard;
 
 /**
  * Represents a rental of a vehicle.

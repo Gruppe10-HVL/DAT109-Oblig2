@@ -1,4 +1,4 @@
-package no.hvl.dat109.controllers;
+package no.hvl.dat109.controller;
 
 public interface RentalController {
     

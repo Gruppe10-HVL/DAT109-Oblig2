@@ -1,4 +1,4 @@
-package no.hvl.dat109.controllers;
+package no.hvl.dat109.controller;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -9,16 +9,16 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.stream.Collectors;
 
-import no.hvl.dat109.utils.Constants;
-import no.hvl.dat109.models.Company;
-import no.hvl.dat109.models.Customer;
-import no.hvl.dat109.models.Office;
-import no.hvl.dat109.models.Rental;
-import no.hvl.dat109.models.Reservation;
-import no.hvl.dat109.models.Vehicle;
-import no.hvl.dat109.utils.Address;
-import no.hvl.dat109.utils.CreditCard;
-import no.hvl.dat109.utils.Group;
+import no.hvl.dat109.model.Company;
+import no.hvl.dat109.model.Customer;
+import no.hvl.dat109.model.Office;
+import no.hvl.dat109.model.Rental;
+import no.hvl.dat109.model.Reservation;
+import no.hvl.dat109.model.Vehicle;
+import no.hvl.dat109.util.Address;
+import no.hvl.dat109.util.Constants;
+import no.hvl.dat109.util.CreditCard;
+import no.hvl.dat109.util.Group;
 
 /**
  * 

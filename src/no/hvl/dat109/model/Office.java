@@ -1,12 +1,12 @@
-package no.hvl.dat109.models;
+package no.hvl.dat109.model;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-import no.hvl.dat109.utils.Group;
-import no.hvl.dat109.utils.Address;
+import no.hvl.dat109.util.Address;
+import no.hvl.dat109.util.Group;
 
 /**
  * Represents an office.
