@@ -214,7 +214,7 @@ public class RentalControllerImpl implements RentalController {
         Rental rental = company.getRentals().stream().filter(r -> r.getCreditCard() == creditCard).findAny()
                 .orElse(null);
         int totalPrice = PaymentHandler.totalPrice(vehicle, rental);
-        
+
         /*
          * 
          * It was not mentioned in the assignment, but now that we have a customers
@@ -228,7 +228,7 @@ public class RentalControllerImpl implements RentalController {
             rental.setReturned(true);
             rental.setEndMileage(mileage);
             allReservations.remove(reservation);
-            System.out.println("Receipt sent.");
+            System.out.println("Receipt sent. Total price will be: " + totalPrice + "kr.");
         }
     }
 }
