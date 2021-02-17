@@ -87,11 +87,11 @@ public class RentalControllerImpl implements RentalController {
         List<Vehicle> availableVehicles = vehicles.stream().filter(v -> v.isAvailable()).collect(Collectors.toList());
 
         System.out.println("Available vehicles:");
-        availableVehicles.stream().forEach(v -> v.toString());
+        availableVehicles.stream().forEach(System.out::println);
 
         // TODO: Select vehicle based on Group
         System.out.println("Registration number:");
-        String regnr = sc.nextLine().toLowerCase();
+        String regnr = sc.nextLine().toUpperCase();
 
         Vehicle vehicle = availableVehicles.stream().filter(v -> v.getRegnr().equals(regnr)).findAny().orElse(null);
 
