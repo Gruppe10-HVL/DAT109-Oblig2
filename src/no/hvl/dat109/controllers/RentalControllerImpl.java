@@ -217,6 +217,9 @@ public class RentalControllerImpl implements RentalController {
         CreditCard creditCard = reservation.getCustomer().getCreditCard();
         Rental rental = company.getRentals().stream().filter(r -> r.getCreditCard() == creditCard).findAny()
                 .orElse(null);
+        if (rental == null) {
+            System.out.println("An error has occurred, please call customer service.");
+        }
         rental.setEndMileage(mileage);
         allReservations.remove(reservation);
 
