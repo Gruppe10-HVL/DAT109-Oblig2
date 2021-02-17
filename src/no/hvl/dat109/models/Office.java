@@ -15,7 +15,6 @@ public class Office {
     private int officenr, phonenr;
     private Address address;
     private Map<String, Vehicle> vehicles;
-    private Map<Integer, ArrayList<Booking>> bookings;
 
     /**
      * 
@@ -28,7 +27,6 @@ public class Office {
         this.address = address;
         this.phonenr = phonenr;
         this.vehicles = new HashMap<String, Vehicle>();
-        this.bookings = new HashMap<Integer, ArrayList<Booking>>();
     }
 
     /**
@@ -43,7 +41,6 @@ public class Office {
         this.address = address;
         this.phonenr = phonenr;
         this.vehicles = vehicles;
-        this.bookings = new HashMap<Integer, ArrayList<Booking>>();
     }
 
     public Vehicle getVehicle(String regnr) {
@@ -80,14 +77,6 @@ public class Office {
 
     public void setVehicles(Map<String, Vehicle> vehicles) {
         this.vehicles = vehicles;
-    }
-
-    public Map<Integer, ArrayList<Booking>> getBookings() {
-        return bookings;
-    }
-
-    public void setBookings(Map<Integer, ArrayList<Booking>> bookings) {
-        this.bookings = bookings;
     }
 
     /**

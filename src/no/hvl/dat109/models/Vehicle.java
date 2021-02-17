@@ -11,7 +11,6 @@ public class Vehicle {
 	private Group group;
 	private int mileage;
 	private boolean available;
-	private ArrayList<Booking> bookings;
 
 	public Vehicle(String regnr, String make, String model, Group group, int mileage) {
 		this.regnr = regnr;
@@ -21,7 +20,6 @@ public class Vehicle {
 		this.available = true;
 		this.mileage = mileage;
 		this.dailyPrice = group.getPrice();
-		bookings = new ArrayList<Booking>();
 	}
 
 	public Vehicle(String regnr, String make, String model, Group group) {
@@ -35,7 +33,6 @@ public class Vehicle {
 		this.group = group.SMALL;
 		this.mileage = 231923;
 		this.dailyPrice = group.getPrice();
-		bookings = new ArrayList<Booking>();
 	}
 
 	public String getRegnr() {
@@ -94,13 +91,6 @@ public class Vehicle {
 		this.available = available;
 	}
 
-	public ArrayList<Booking> getBookings() {
-		return bookings;
-	}
-
-	public void setBookings(ArrayList<Booking> bookings) {
-		this.bookings = bookings;
-	}
 
 	@Override
 	public String toString() {
