@@ -213,7 +213,7 @@ public class RentalControllerImpl implements RentalController {
         CreditCard creditCard = reservation.getCustomer().getCreditCard();
         Rental rental = company.getRentals().stream().filter(r -> r.getCreditCard() == creditCard).findAny()
                 .orElse(null);
-        int totalPrice = PaymentHandler.totalPrice(vehicle, rental);
+        int totalPrice = PaymentHandler.totalPrice(vehicle, reservation);
 
         /*
          * 
