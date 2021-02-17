@@ -16,8 +16,8 @@ public class Client {
         Scanner sc = new Scanner(System.in);
         boolean exit = false;
         List<Company> companiesList = Dummy.dummyCompanies(); // Dummy company, remove later.
-
         System.out.println("Please select your preferred rental company");
+        companiesList.stream().forEach(c -> c.toString());
         Company company = companiesList.get(sc.nextInt());
         sc.nextLine();
         System.out.println("Hello and welcome to" + company.getName());
