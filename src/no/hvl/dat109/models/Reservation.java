@@ -78,13 +78,4 @@ public class Reservation {
     public void setCustomer(Customer customer) {
         this.customer = customer;
     }
-
-    public void book(Vehicle vehicle) {
-        LocalDate currentDate = LocalDate.now();
-        LocalDate endDate = fromDate.plusDays(days);
-
-        if (currentDate.isAfter(fromDate) && currentDate.isBefore(endDate)) {
-            vehicle.setAvailable(false);
-        }
-    }
 }
