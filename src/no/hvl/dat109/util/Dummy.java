@@ -12,14 +12,14 @@ import no.hvl.dat109.model.Vehicle;
 public class Dummy {
 
     public static List<Company> dummyCompanies() {
-        Company[] companies = new Company[] { dummyCompany1(),
+        Company[] companies = new Company[] { dummyCompany(),
                 new Company("Rent a wrecker Bilutleie AS", new Address("Bergensveien 40", 5075, "Bergen"), 48345678),
                 new Company("Avisos", new Address("Bergensveien 41", 5075, "Bergen"), 53345678),
                 new Company("Normal cars rental AS", new Address("Bergensveien 45", 5075, "Bergen"), 47345678) };
         return Arrays.asList(companies);
     }
 
-    public static Company dummyCompany1() {
+    public static Company dummyCompany() {
         return new Company("Bergen Internationale Bilutleigeselskab", new Address("Bergensveien 45", 5075, "Bergen"),
                 63345678, dummyOffices());
     }
