@@ -80,12 +80,9 @@ public class ReservationController {
         Vehicle vehicle = availableVehicles.stream().filter(v -> v.getRegnr().equals(regnr)).findAny().orElse(null);
 
         if (vehicle == null) {
-            try {
-                System.out.printf("Vehicle with registration number %s doesn't exist.\n", regnr);
-                sc.close();
-                return false;
-            } catch (Exception e) {
-            }
+            System.out.printf("Vehicle with registration number %s doesn't exist.\n", regnr);
+            sc.close();
+            return false;
         }
 
         System.out.println("Firstname:");
@@ -113,10 +110,9 @@ public class ReservationController {
 
         System.out.println("Booking complete");
 
-        return true;
-        // TODO Add reservation to rental company
         company.addReservation(reservation);
-
-        return;
+        
+        sc.close();
+        return true;
     }
 }

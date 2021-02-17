@@ -26,7 +26,7 @@ public class RentalController {
         if (reservation == null) {
             System.out.println("No reservations with that phone number.");
             sc.close();
-            return;
+            return false;
         }
 
         LocalDate rentalDate = reservation.getFromDate();
@@ -53,6 +53,7 @@ public class RentalController {
         company.addRentedVehicle(rental);
         System.out.println("Rental complete!");
 
+        sc.close();
         return true;
 
         // TODO: return to client

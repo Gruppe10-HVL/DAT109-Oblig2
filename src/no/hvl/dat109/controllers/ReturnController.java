@@ -29,7 +29,7 @@ public class ReturnController {
         if (reservation == null) {
             System.out.println("No reservation with that phone number.");
             sc.close();
-            return true;
+            return false;
         }
 
         System.out.println("Enter current mileage:");
@@ -52,6 +52,7 @@ public class ReturnController {
         List<Return> returnedVehicles = company.getReturnedCars();
         returnedVehicles.add(returnVehicle);
 
+        sc.close();
         return true;
         // TODO: return to client
 
