@@ -1,4 +1,4 @@
-package no.hvl.dat109.utils;
+package no.hvl.dat109.util;
 
 public class Address {
 

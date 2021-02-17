@@ -1,9 +1,13 @@
-package no.hvl.dat109.models;
+package no.hvl.dat109.model;
 
 import java.time.LocalDate;
 
-import no.hvl.dat109.utils.CreditCard;
+import no.hvl.dat109.util.CreditCard;
 
+/**
+ * Represents a rental of a vehicle.
+ * @author 
+ */
 public class Rental {
 
     private CreditCard creditCard;
@@ -12,6 +16,15 @@ public class Rental {
     private LocalDate rentalDate, returnDate;
     private boolean returned;
 
+    /**
+     * Creates a new rental.
+     * @param creditCard Customer credit card
+     * @param regnr Vehicle registration number
+     * @param startMileage Vehicle start mileage
+     * @param rentalDate Pick-up date of rental
+     * @param returnDate Return date of rental
+     * @param returned If vehicle is returned or not
+     */
     public Rental(CreditCard creditCard, String regnr, int startMileage, LocalDate rentalDate, LocalDate returnDate,
             boolean returned) {
         this.creditCard = creditCard;

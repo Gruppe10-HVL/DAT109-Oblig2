@@ -1,16 +1,6 @@
-package no.hvl.dat109.controllers;
+package no.hvl.dat109.controller;
 
 public interface RentalController {
-    
-    /**
-     * 
-     */
-    public void search();
-
-    /**
-     * 
-     */
-    public void searchByGroup(); 
     
     /**
      * Makes a reservation and saves customer info.

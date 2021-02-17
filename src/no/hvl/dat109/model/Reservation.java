@@ -1,8 +1,12 @@
-package no.hvl.dat109.models;
+package no.hvl.dat109.model;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
 
+/**
+ * Represents a reservation.
+ * @author
+ */
 public class Reservation {
 
     private Vehicle vehicle;
@@ -12,6 +16,16 @@ public class Reservation {
     private Office rentalOffice, returnOffice;
     private Customer customer;
 
+    /**
+     * Creates a new reservation.
+     * @param vehicle Reserved vehicle
+     * @param fromDate Reservation from date
+     * @param fromTime Reservation from time-point
+     * @param days Amount of days for reservation
+     * @param rentalOffice Office vehicle is rented from
+     * @param returnOffice Office vehicle is returned to
+     * @param customer Customer renting the vehicle
+     */
     public Reservation(Vehicle vehicle, LocalDate fromDate, LocalTime fromTime, int days, Office rentalOffice,
             Office returnOffice, Customer customer) {
         this.vehicle = vehicle;

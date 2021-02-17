@@ -1,15 +1,17 @@
-package no.hvl.dat109.models;
+package no.hvl.dat109.model;
 
-import java.time.LocalDate;
-import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-import no.hvl.dat109.utils.Group;
-import no.hvl.dat109.utils.Address;
+import no.hvl.dat109.util.Address;
+import no.hvl.dat109.util.Group;
 
+/**
+ * Represents an office.
+ * @author 
+ */
 public class Office {
 
     private int officenr, phonenr;
@@ -17,7 +19,7 @@ public class Office {
     private Map<String, Vehicle> vehicles;
 
     /**
-     * 
+     * Creates a new rental office without vehicles.
      * @param officenr
      * @param address
      * @param phonenr
@@ -30,7 +32,7 @@ public class Office {
     }
 
     /**
-     * 
+     * Creates a new rental office with one or more vehicles.
      * @param officenr
      * @param address
      * @param phonenr
@@ -80,25 +82,26 @@ public class Office {
     }
 
     /**
-     * 
-     * @param vehicle
+     * Add a vehicle to the office.
+     * @param vehicle The vehicle to add.
      */
     public void addVehicle(Vehicle vehicle) {
         vehicles.put(vehicle.getRegnr(), vehicle);
     }
 
     /**
-     * 
-     * @param vehicle
+     * Remove a vehicle from the office.
+     * @param vehicle The vehicle to be removed.
      */
     public void removeVehicle(Vehicle vehicle) {
         vehicles.remove(vehicle.getRegnr());
     }
 
     /**
-     * 
-     * @param group
-     * @return
+     * Returns a list of all vehicles of a specified group at
+     * the office.
+     * @param group The specified group.
+     * @return A list of vehicles.
      */
     public ArrayList<Vehicle> getAllVehiclesByGroup(Group group) {
         return vehicles.values().stream().filter(x -> x.getGroup().compareTo(group) == 0)
@@ -106,8 +109,8 @@ public class Office {
     }
 
     /**
-     * 
-     * @return
+     * Returns a list of all vehicles at the office.
+     * @return A list of vehicles.
      */
     public ArrayList<Vehicle> getAllVehicles() {
         return new ArrayList<Vehicle>(vehicles.values());

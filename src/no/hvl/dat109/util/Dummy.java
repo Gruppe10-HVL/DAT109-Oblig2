@@ -1,13 +1,13 @@
-package no.hvl.dat109.utils;
+package no.hvl.dat109.util;
 
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import no.hvl.dat109.models.Company;
-import no.hvl.dat109.models.Office;
-import no.hvl.dat109.models.Vehicle;
+import no.hvl.dat109.model.Company;
+import no.hvl.dat109.model.Office;
+import no.hvl.dat109.model.Vehicle;
 
 public class Dummy {
 
