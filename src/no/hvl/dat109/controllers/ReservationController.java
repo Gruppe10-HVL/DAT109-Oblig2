@@ -47,8 +47,7 @@ public class ReservationController {
         int days = sc.nextInt();
         sc.nextLine();
 
-        Map<String, Vehicle> dummyVehicles = Dummy.dummyVehicleList();
-        Office rentalOffice2 = new Office(3, new Address("", 0, ""), 3, dummyVehicles);
+        Office rentalOffice2 = new Office(3, new Address("", 0, ""), 3, Dummy.dummyVehicleList());
 
         Office rentalOffice = new Office(1, new Address("", 0, ""), 1); // TODO: stream company office list
         Office returnOffice = new Office(2, new Address("", 0, ""), 2); // TODO: stream company office list
