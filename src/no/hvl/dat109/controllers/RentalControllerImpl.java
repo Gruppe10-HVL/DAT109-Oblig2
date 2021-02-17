@@ -3,11 +3,13 @@ package no.hvl.dat109.controllers;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 import java.util.stream.Collectors;
 
-import no.hvl.dat109.constants.Constants;
+import no.hvl.dat109.utils.Constants;
 import no.hvl.dat109.models.Company;
 import no.hvl.dat109.models.Customer;
 import no.hvl.dat109.models.Office;
@@ -16,6 +18,7 @@ import no.hvl.dat109.models.Reservation;
 import no.hvl.dat109.models.Vehicle;
 import no.hvl.dat109.utils.Address;
 import no.hvl.dat109.utils.CreditCard;
+import no.hvl.dat109.utils.Group;
 
 /**
  * 
@@ -46,7 +49,7 @@ public class RentalControllerImpl implements RentalController {
         List<Office> offices = company.getOffices();
         LocalDate date;
         LocalTime time;
-        Scanner sc = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in); // cant close scanner in method, will crash client
         System.out.println("Here is a list of our available offices: ");
         offices.forEach(System.out::println);
         System.out.println("Rental office:");
@@ -83,9 +86,13 @@ public class RentalControllerImpl implements RentalController {
         int days = sc.nextInt();
         sc.nextLine();
 
+        System.out.println("Please select a vehicle group: (Write the full name of your preferred group)");
+        List<Group> groupList = new ArrayList<>(Arrays.asList(Group.values()));
+        groupList.forEach(System.out::println);
+        Group chosenGroup = Group.valueOf(sc.nextLine().toUpperCase());
         List<Vehicle> vehicles = rentalOffice.getAllVehicles();
-        // TODO: Change to Group stream
-        List<Vehicle> availableVehicles = vehicles.stream().filter(v -> v.isAvailable()).collect(Collectors.toList());
+        List<Vehicle> availableVehicles = vehicles.stream()
+                .filter(v -> v.getGroup().equals(chosenGroup) && v.isAvailable()).collect(Collectors.toList());
 
         System.out.println("Available vehicles:");
         availableVehicles.stream().forEach(System.out::println);
@@ -98,7 +105,6 @@ public class RentalControllerImpl implements RentalController {
 
         if (vehicle == null) {
             System.out.printf("Vehicle with registration number %s doesn't exist.\n", regnr);
-
             return;
         }
 
@@ -133,7 +139,7 @@ public class RentalControllerImpl implements RentalController {
 
     @Override
     public void rentVehicle() {
-        Scanner sc = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in); // cant close scanner in method, will crash client
 
         System.out.println("Phone number:");
         int phonenr = sc.nextInt();
@@ -178,7 +184,7 @@ public class RentalControllerImpl implements RentalController {
 
     @Override
     public void returnVehicle() {
-        Scanner sc = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in); // cant close scanner in method, will crash client
         LocalDate currentDate = LocalDate.now();
 
         System.out.println("Phone number:");
@@ -213,9 +219,10 @@ public class RentalControllerImpl implements RentalController {
                 .orElse(null);
         if (rental == null) {
             System.out.println("An error has occurred, please call customer service.");
+        } else {
+            rental.setReturned(true);
+            rental.setEndMileage(mileage);
+            allReservations.remove(reservation);
         }
-        rental.setEndMileage(mileage);
-        allReservations.remove(reservation);
-
     }
 }

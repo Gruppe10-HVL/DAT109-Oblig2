@@ -1,9 +1,7 @@
-package no.hvl.dat109.constants;
+package no.hvl.dat109.utils;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import no.hvl.dat109.utils.Address;
 
 public class Constants {
 
