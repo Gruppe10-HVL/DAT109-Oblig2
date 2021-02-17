@@ -6,15 +6,15 @@ import no.hvl.dat109.utils.Address;
 
 public class Company {
 
-    // TODO: Change phonenr to int
-    private String name, phonenr;
+    private String name;
+    private int phonenr;
     private Address address;
     private List<Reservation> reservations;
     private List<Office> offices;
     private List<Rental> rentals;
     private List<Return> returns;
 
-    public Company(String name, Address address, String phonenr) {
+    public Company(String name, Address address, int phonenr) {
         this.name = name;
         this.address = address;
         this.phonenr = phonenr;
@@ -32,11 +32,11 @@ public class Company {
         this.name = name;
     }
 
-    public String getPhonenr() {
+    public int getPhonenr() {
         return phonenr;
     }
 
-    public void setPhonenr(String phonenr) {
+    public void setPhonenr(int phonenr) {
         this.phonenr = phonenr;
     }
 
