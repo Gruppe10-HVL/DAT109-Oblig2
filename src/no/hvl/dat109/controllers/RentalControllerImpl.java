@@ -37,7 +37,7 @@ public class RentalControllerImpl implements RentalController {
 
     @Override
     public void searchByGroup() {
-        
+
     }
 
     @Override
@@ -63,7 +63,7 @@ public class RentalControllerImpl implements RentalController {
             date = LocalDate.parse(dateString, dtf);
         } catch (Exception e) {
             System.out.println("Please input a properly formatted date");
-            sc.close();
+
             return;
         }
 
@@ -74,7 +74,7 @@ public class RentalControllerImpl implements RentalController {
             time = LocalTime.parse(timeString, dtf);
         } catch (Exception e) {
             System.out.println("Please input a properly formatted time");
-            sc.close();
+
             return;
         }
 
@@ -97,7 +97,7 @@ public class RentalControllerImpl implements RentalController {
 
         if (vehicle == null) {
             System.out.printf("Vehicle with registration number %s doesn't exist.\n", regnr);
-            sc.close();
+
             return;
         }
 
@@ -128,7 +128,6 @@ public class RentalControllerImpl implements RentalController {
 
         company.addReservation(reservation);
 
-        sc.close();
     }
 
     @Override
@@ -146,7 +145,7 @@ public class RentalControllerImpl implements RentalController {
 
         if (reservation == null) {
             System.out.println("No reservations with that phone number.");
-            sc.close();
+
             return;
         }
 
@@ -174,7 +173,6 @@ public class RentalControllerImpl implements RentalController {
         company.addRentedVehicle(rental);
         System.out.println("Rental complete!");
 
-        sc.close();
     }
 
     @Override
@@ -193,7 +191,7 @@ public class RentalControllerImpl implements RentalController {
 
         if (reservation == null) {
             System.out.println("No reservation with that phone number.");
-            sc.close();
+
             return;
         }
 
@@ -208,7 +206,7 @@ public class RentalControllerImpl implements RentalController {
         Office returnOffice = reservation.getReturnOffice();
         returnOffice.addVehicle(vehicle);
 
-        System.out.println("Receit sent.");
+        System.out.println("Receipt sent.");
         CreditCard creditCard = reservation.getCustomer().getCreditCard();
 
         allReservations.remove(reservation);
@@ -217,6 +215,5 @@ public class RentalControllerImpl implements RentalController {
         List<Return> returnedVehicles = company.getReturnedCars();
         returnedVehicles.add(returnVehicle);
 
-        sc.close();
     }
 }
