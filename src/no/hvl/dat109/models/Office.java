@@ -17,6 +17,12 @@ public class Office {
     private Map<String, Vehicle> vehicles;
     private Map<Integer, ArrayList<Booking>> bookings;
 
+    /**
+     * 
+     * @param officenr
+     * @param address
+     * @param phonenr
+     */
     public Office(int officenr, Address address, int phonenr) {
         this.officenr = officenr;
         this.address = address;
@@ -25,6 +31,13 @@ public class Office {
         this.bookings = new HashMap<Integer, ArrayList<Booking>>();
     }
 
+    /**
+     * 
+     * @param officenr
+     * @param address
+     * @param phonenr
+     * @param vehicles
+     */
     public Office(int officenr, Address address, int phonenr, Map<String, Vehicle> vehicles) {
         this.officenr = officenr;
         this.address = address;
@@ -77,24 +90,36 @@ public class Office {
         this.bookings = bookings;
     }
 
+    /**
+     * 
+     * @param vehicle
+     */
     public void addVehicle(Vehicle vehicle) {
         vehicles.put(vehicle.getRegnr(), vehicle);
     }
 
+    /**
+     * 
+     * @param vehicle
+     */
     public void removeVehicle(Vehicle vehicle) {
         vehicles.remove(vehicle.getRegnr());
     }
 
-    public Reservation createReservation(Vehicle v, LocalDate fromDate, LocalTime fromTime, int days,
-            Office rentalOffice, Office returnOffice, Customer customer) {
-        return new Reservation(v, fromDate, fromTime, days, rentalOffice, returnOffice, customer);
-    }
-
+    /**
+     * 
+     * @param group
+     * @return
+     */
     public ArrayList<Vehicle> getAllVehiclesByGroup(Group group) {
         return vehicles.values().stream().filter(x -> x.getGroup().compareTo(group) == 0)
                 .collect(Collectors.toCollection(ArrayList::new));
     }
 
+    /**
+     * 
+     * @return
+     */
     public ArrayList<Vehicle> getAllVehicles() {
         return new ArrayList<Vehicle>(vehicles.values());
     }

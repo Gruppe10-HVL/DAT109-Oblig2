@@ -10,6 +10,13 @@ public class Customer {
     private int phonenr;
     CreditCard creditCard;
 
+    /**
+     * 
+     * @param firstname
+     * @param surname
+     * @param address
+     * @param phonenr
+     */
     public Customer(String firstname, String surname, Address address, int phonenr) {
         this.firstname = firstname;
         this.surname = surname;

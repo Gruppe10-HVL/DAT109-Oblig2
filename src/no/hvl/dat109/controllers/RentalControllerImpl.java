@@ -22,10 +22,17 @@ public class RentalControllerImpl implements RentalController {
 
     private Company company;
 
+    /**
+     * 
+     * @param company
+     */
     public RentalControllerImpl(Company company) {
         this.company = company;
     }
 
+    /**
+     * 
+     */
     public RentalControllerImpl() {
         this(null);
     }
@@ -37,7 +44,7 @@ public class RentalControllerImpl implements RentalController {
 
     @Override
     public void searchByGroup() {
-        
+
     }
 
     @Override
