@@ -58,7 +58,5 @@ public class ReturnControllerImpl {
 
         sc.close();
         return true;
-        // TODO: return to client
-
     }
 }
