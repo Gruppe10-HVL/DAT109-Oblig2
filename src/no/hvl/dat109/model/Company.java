@@ -1,7 +1,9 @@
 package no.hvl.dat109.model;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import no.hvl.dat109.util.Address;
 
@@ -13,9 +15,10 @@ public class Company {
     private List<Reservation> reservations;
     private List<Office> offices;
     private List<Rental> rentals;
+    private Map<Integer, Customer> customers;
 
     /**
-     * 
+     * Creates a new office without offices.
      * @param name
      * @param address
      * @param phonenr
@@ -24,13 +27,12 @@ public class Company {
         this.name = name;
         this.address = address;
         this.phonenr = phonenr;
-        this.reservations = new ArrayList<Reservation>();
         this.offices = new ArrayList<Office>();
-        this.rentals = new ArrayList<Rental>();
+        this.customers = new HashMap<Integer, Customer>();
     }
 
     /**
-     * 
+     * Creates a new company with offices.
      * @param name
      * @param address
      * @param phonenr
@@ -41,8 +43,7 @@ public class Company {
         this.address = address;
         this.phonenr = phonenr;
         this.offices = offices;
-        this.reservations = new ArrayList<Reservation>();
-        this.rentals = new ArrayList<Rental>();
+        this.customers = new HashMap<Integer, Customer>();
     }
 
     public String getName() {
@@ -81,20 +82,25 @@ public class Company {
         return rentals;
     }
 
-    /**
-     * 
-     * @param reservation
-     */
-    public void addReservation(Reservation reservation) {
-        reservations.add(reservation);
+    public Map<Integer, Customer> getCustomers() {
+        return customers;
     }
 
     /**
      * 
-     * @param rental
+     * @param customer
      */
-    public void addRentedVehicle(Rental rental) {
-        rentals.add(rental);
+    public void addCustomer(Customer customer) {
+        customers.put(customer.getPhonenr(), customer);
+    }
+
+    /**
+     * 
+     * @param phonenr
+     * @return
+     */
+    public boolean hasCustomer(int phonenr) {
+        return customers.containsKey(phonenr);
     }
 
     /**

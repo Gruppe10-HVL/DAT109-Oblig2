@@ -1,5 +1,8 @@
 package no.hvl.dat109.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import no.hvl.dat109.util.Address;
 import no.hvl.dat109.util.CreditCard;
 
@@ -9,6 +12,9 @@ public class Customer {
     private Address address;
     private int phonenr;
     CreditCard creditCard;
+
+    private List<Reservation> reservations;
+    private List<Rental> rentals;
 
     /**
      * 
@@ -23,6 +29,24 @@ public class Customer {
         this.address = address;
         this.phonenr = phonenr;
         this.creditCard = null;
+        this.reservations = new ArrayList<Reservation>();
+        this.rentals = new ArrayList<Rental>();
+    }
+
+    /**
+     * Add reservation to a customer.
+     * @param reservation Reservation to add to customer.
+     */
+    public void addReservation(Reservation reservation) {
+        reservations.add(reservation);
+    }
+
+    /**
+     * Add a rental to a customer.
+     * @param rental Rental to add to customer.
+     */
+    public void addRental(Rental rental) {
+        rentals.add(rental);
     }
 
     public String getFirstname() {
@@ -63,5 +87,15 @@ public class Customer {
 
     public void setCreditCard(CreditCard creditCard) {
         this.creditCard = creditCard;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        Customer customer;
+        if (obj instanceof Customer) {
+            customer = (Customer) obj;
+            return this.getPhonenr() == customer.getPhonenr();
+        }
+        return false;
     }
 }

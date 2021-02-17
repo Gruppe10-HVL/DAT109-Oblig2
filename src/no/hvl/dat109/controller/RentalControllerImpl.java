@@ -37,13 +37,6 @@ public class RentalControllerImpl implements RentalController {
         this.company = company;
     }
 
-    /**
-     * 
-     */
-    public RentalControllerImpl() {
-        this(null);
-    }
-
     @Override
     public void bookVehicle(Scanner sc) {
         DateTimeFormatter dtf;
@@ -53,11 +46,11 @@ public class RentalControllerImpl implements RentalController {
         System.out.println("Here is a list of our available offices: ");
         offices.forEach(System.out::println);
         System.out.println("Rental office:");
-        Office returnOffice = offices.get(sc.nextInt() - 1);
+        Office rentalOffice = offices.get(sc.nextInt() - 1);
         sc.nextLine();
 
         System.out.println("Return office:");
-        Office rentalOffice = offices.get(sc.nextInt() - 1);
+        Office returnOffice = offices.get(sc.nextInt() - 1);
         sc.nextLine();
 
         try {
@@ -114,7 +107,7 @@ public class RentalControllerImpl implements RentalController {
         String lName = sc.nextLine();
 
         System.out.println("Phonenr:");
-        int phone = sc.nextInt();
+        int phonenr = sc.nextInt();
         sc.nextLine();
 
         System.out.println("Street-address:");
@@ -127,12 +120,20 @@ public class RentalControllerImpl implements RentalController {
         System.out.println("Postal address:");
         String postalAddress = sc.nextLine();
 
-        Customer customer = new Customer(fName, lName, new Address(street, postalCode, postalAddress), phone);
+        Customer customer;
+
+        if (company.hasCustomer(phonenr)) {
+            customer = company.getCustomers().get(phonenr);
+        } else {
+            customer = new Customer(fName, lName, new Address(street, postalCode, postalAddress), phonenr);
+            company.addCustomer(customer);
+        }
+        
         Reservation reservation = new Reservation(vehicle, date, time, days, rentalOffice, returnOffice, customer);
 
         System.out.println("Booking complete");
 
-        company.addReservation(reservation);
+        customer.addReservation(reservation);
     }
 
     @Override
@@ -170,11 +171,13 @@ public class RentalControllerImpl implements RentalController {
             creditCard.setCardNumber(creditCardNr);
         }
 
-        String regnr = reservation.getVehicle().getRegnr();
+        Vehicle vehicle = reservation.getVehicle();
+        Customer customer = reservation.getCustomer();
         int mileage = reservation.getVehicle().getMileage();
 
-        Rental rental = new Rental(creditCard, regnr, mileage, rentalDate, returnDate);
-        company.addRentedVehicle(rental);
+        Rental rental = new Rental(creditCard, vehicle, mileage, rentalDate, returnDate);
+        reservation.getRentalOffice().removeVehicle(vehicle);
+        customer.addRental(rental);
         System.out.println("Rental complete!");
 
     }
