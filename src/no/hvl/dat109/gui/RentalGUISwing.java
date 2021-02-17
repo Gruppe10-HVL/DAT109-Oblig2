@@ -9,8 +9,6 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 
 import no.hvl.dat109.controllers.RentalControllerImpl;
-import no.hvl.dat109.controllers.ReservationControllerImpl;
-import no.hvl.dat109.controllers.ReturnControllerImpl;
 import no.hvl.dat109.models.Company;
 
 public class RentalGUISwing extends JFrame implements ActionListener, WindowListener {
@@ -20,17 +18,13 @@ public class RentalGUISwing extends JFrame implements ActionListener, WindowList
      */
     private static final long serialVersionUID = 1L;
 
-    private ReservationControllerImpl reservationController;
-    private RentalControllerImpl rentalController;
-    private ReturnControllerImpl returnController;
+    private RentalControllerImpl controller;
 
     /**
      * 
      */
     public RentalGUISwing() {
-        this.reservationController = new ReservationControllerImpl();
-        this.rentalController = new RentalControllerImpl();
-        this.returnController = new ReturnControllerImpl();
+        this.controller = new RentalControllerImpl();
         
         generateFrame();
         
