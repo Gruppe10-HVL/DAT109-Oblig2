@@ -4,6 +4,10 @@ import java.util.ArrayList;
 
 import no.hvl.dat109.utils.Group;
 
+/**
+ * Represents a vehicle.
+ * @author
+ */
 public class Vehicle {
 
 	private int dailyPrice;
@@ -12,6 +16,14 @@ public class Vehicle {
 	private int mileage;
 	private boolean available;
 
+	/**
+	 * Creates a new vehicle with mileage;
+	 * @param regnr Vehicle registration number
+	 * @param make Make of vehicle
+	 * @param model Model of vehicle
+	 * @param group Vehicle price group
+	 * @param mileage Current vehicle mileage
+	 */
 	public Vehicle(String regnr, String make, String model, Group group, int mileage) {
 		this.regnr = regnr;
 		this.make = make;
@@ -22,17 +34,15 @@ public class Vehicle {
 		this.dailyPrice = group.getPrice();
 	}
 
+	/**
+	 * Creates a new vehicle with no mileage.
+	 * @param regnr Vehicle registration number
+	 * @param make Make of vehicle
+	 * @param model Model of vehicle
+	 * @param group Vehicle price group
+	 */
 	public Vehicle(String regnr, String make, String model, Group group) {
 		this(regnr, make, model, group, 0);
-	}
-
-	public Vehicle(boolean t) {
-		this.regnr = "12345";
-		this.make = "BMW";
-		this.model = "320d";
-		this.group = group.SMALL;
-		this.mileage = 231923;
-		this.dailyPrice = group.getPrice();
 	}
 
 	public String getRegnr() {

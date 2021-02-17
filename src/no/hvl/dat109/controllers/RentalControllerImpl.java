@@ -17,12 +17,16 @@ import no.hvl.dat109.models.Vehicle;
 import no.hvl.dat109.utils.Address;
 import no.hvl.dat109.utils.CreditCard;
 
+/**
+ * 
+ * @author
+ */
 public class RentalControllerImpl implements RentalController {
 
     private Company company;
 
     /**
-     * 
+     * Creates a rental controller for a specified company.
      * @param company
      */
     public RentalControllerImpl(Company company) {
@@ -34,16 +38,6 @@ public class RentalControllerImpl implements RentalController {
      */
     public RentalControllerImpl() {
         this(null);
-    }
-
-    @Override
-    public void search() {
-
-    }
-
-    @Override
-    public void searchByGroup() {
-
     }
 
     @Override
