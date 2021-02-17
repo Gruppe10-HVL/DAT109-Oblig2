@@ -21,7 +21,7 @@ public class Dummy {
 
     public static Company dummyCompany1() {
         return new Company("Bergen Internationale Bilutleigeselskab", new Address("Bergensveien 45", 5075, "Bergen"),
-                63345678);
+                63345678, dummyOffices());
     }
 
     public static List<Office> dummyOffices() {

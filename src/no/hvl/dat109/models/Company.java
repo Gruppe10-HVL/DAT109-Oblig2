@@ -24,6 +24,16 @@ public class Company {
         this.returns = new ArrayList<Return>();
     }
 
+    public Company(String name, Address address, int phonenr, List<Office> offices) {
+        this.name = name;
+        this.address = address;
+        this.phonenr = phonenr;
+        this.offices = offices;
+        this.reservations = new ArrayList<Reservation>();
+        this.rentals = new ArrayList<Rental>();
+        this.returns = new ArrayList<Return>();
+    }
+
     public String getName() {
         return name;
     }
