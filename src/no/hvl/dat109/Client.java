@@ -1,11 +1,12 @@
 package no.hvl.dat109;
 
+import java.util.List;
 import java.util.Scanner;
 import no.hvl.dat109.controllers.RentalControllerImpl;
 import no.hvl.dat109.utils.Dummy;
 import no.hvl.dat109.models.Company;
 
-public class Main {
+public class Client {
 
     public static void main(String[] args) {
         run();
@@ -14,12 +15,13 @@ public class Main {
     public static void run() {
         Scanner sc = new Scanner(System.in);
         boolean exit = false;
-        Company dummyCompany = Dummy.dummyCompany(); // Dummy company, remove later.
-        System.out.println("Hello and welcome to Rent-a-complete-wreck Bilutleie AS");
-        
-        // TODO: Choose company
-        
-        RentalControllerImpl controller = new RentalControllerImpl(dummyCompany);
+        List<Company> companiesList = Dummy.dummyCompanies(); // Dummy company, remove later.
+
+        System.out.println("Please select your preferred rental company");
+        Company company = companiesList.get(sc.nextInt());
+        sc.nextLine();
+        System.out.println("Hello and welcome to" + company.getName());
+        RentalControllerImpl controller = new RentalControllerImpl(company);
 
         while (!exit) {
             System.out.println("Would you like to:");

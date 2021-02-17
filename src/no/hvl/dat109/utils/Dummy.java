@@ -11,6 +11,11 @@ import no.hvl.dat109.models.Vehicle;
 
 public class Dummy {
 
+    public static List<Company> dummyCompanies() {
+        Company[] companies = new Company[] { dummyCompany1(), dummyCompany2(), dummyCompany3(), dummyCompany4() };
+        return Arrays.asList(companies);
+    }
+
     public static Company dummyCompany1() {
         return new Company("Rent a complete wreck Bilutleie AS", new Address("Bergensveien 45", 5075, "Bergen"),
                 63345678);
