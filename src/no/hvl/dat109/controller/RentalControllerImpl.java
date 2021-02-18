@@ -145,13 +145,19 @@ public class RentalControllerImpl implements RentalController {
         int phonenr = sc.nextInt();
         sc.nextLine();
 
-        List<Reservation> allReservations = company.getReservations();
+        Customer customer = company.getCustomers().get(phonenr);
 
-        Reservation reservation = allReservations.stream().filter(r -> phonenr == r.getCustomer().getPhonenr())
+        if (customer == null) {
+            System.out.println("No customer with that phone number.");
+
+            return;
+        }
+
+        Reservation reservation = customer.getReservations().stream().filter(r -> phonenr == r.getCustomer().getPhonenr())
                 .findAny().orElse(null);
 
         if (reservation == null) {
-            System.out.println("No reservations with that phone number.");
+            System.out.println("No reservations registered.");
 
             return;
         }
@@ -174,7 +180,6 @@ public class RentalControllerImpl implements RentalController {
         }
 
         Vehicle vehicle = reservation.getVehicle();
-        Customer customer = reservation.getCustomer();
         int mileage = reservation.getVehicle().getMileage();
 
         Rental rental = new Rental(creditCard, vehicle, mileage, rentalDate, returnDate);
@@ -191,13 +196,19 @@ public class RentalControllerImpl implements RentalController {
         int phonenr = sc.nextInt();
         sc.nextLine();
 
-        List<Reservation> allReservations = company.getReservations();
+        Customer customer = company.getCustomers().get(phonenr);
 
-        Reservation reservation = allReservations.stream().filter(r -> phonenr == r.getCustomer().getPhonenr())
+        if (customer == null) {
+            System.out.println("No customer with that phone number.");
+
+            return;
+        }
+
+        Reservation reservation = customer.getReservations().stream().filter(r -> phonenr == r.getCustomer().getPhonenr())
                 .findAny().orElse(null);
 
         if (reservation == null) {
-            System.out.println("No reservation with that phone number.");
+            System.out.println("No rentals registered.");
 
             return;
         }
@@ -214,7 +225,7 @@ public class RentalControllerImpl implements RentalController {
         returnOffice.addVehicle(vehicle);
 
         CreditCard creditCard = reservation.getCustomer().getCreditCard();
-        Rental rental = company.getRentals().stream().filter(r -> r.getCreditCard() == creditCard).findAny()
+        Rental rental = customer.getRentals().stream().filter(r -> r.getCreditCard() == creditCard).findAny()
                 .orElse(null);
         int totalPrice = PaymentHandler.totalPrice(vehicle, reservation);
 
@@ -230,7 +241,7 @@ public class RentalControllerImpl implements RentalController {
         } else {
             rental.setReturned(true);
             rental.setEndMileage(mileage);
-            allReservations.remove(reservation);
+            customer.removeReservation(reservation);
             System.out.println("Receipt sent. Total price will be: " + totalPrice + "kr.");
         }
     }

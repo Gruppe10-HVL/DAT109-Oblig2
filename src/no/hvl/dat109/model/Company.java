@@ -12,9 +12,7 @@ public class Company {
     private String name;
     private int phonenr;
     private Address address;
-    private List<Reservation> reservations;
     private List<Office> offices;
-    private List<Rental> rentals;
     private Map<Integer, Customer> customers;
 
     /**
@@ -70,16 +68,8 @@ public class Company {
         this.address = address;
     }
 
-    public List<Reservation> getReservations() {
-        return reservations;
-    }
-
     public List<Office> getOffices() {
         return offices;
-    }
-
-    public List<Rental> getRentals() {
-        return rentals;
     }
 
     public Map<Integer, Customer> getCustomers() {

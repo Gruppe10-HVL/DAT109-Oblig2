@@ -11,7 +11,7 @@ public class Reservation {
 
     private Vehicle vehicle;
     private LocalDate fromDate;
-    LocalTime fromTime;
+    private LocalTime fromTime;
     private int days;
     private Office rentalOffice, returnOffice;
     private Customer customer;

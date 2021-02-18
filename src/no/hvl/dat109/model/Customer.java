@@ -42,6 +42,14 @@ public class Customer {
     }
 
     /**
+     * Remove a reservation from customer.
+     * @param reservation Reservation to be removed
+     */
+    public void removeReservation(Reservation reservation) {
+        reservations.remove(reservation);
+    }
+
+    /**
      * Add a rental to a customer.
      * @param rental Rental to add to customer.
      */
@@ -87,6 +95,14 @@ public class Customer {
 
     public void setCreditCard(CreditCard creditCard) {
         this.creditCard = creditCard;
+    }
+
+    public List<Reservation> getReservations() {
+        return reservations;
+    }
+
+    public List<Rental> getRentals() {
+        return rentals;
     }
 
     @Override
